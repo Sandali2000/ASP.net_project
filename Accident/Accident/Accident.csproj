@@ -1,0 +1,2482 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D002934C-F525-4C79-8673-A81E18DC1C39}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Accident</RootNamespace>
+    <AssemblyName>Accident</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44311</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.2.6\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.28\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Web.8.0.28\lib\net452\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.28\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.7\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.7\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.28\lib\net452\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="accident_pic\istockphoto-451333971-612x612.jpg" />
+    <Content Include="addaccident.aspx" />
+    <Content Include="addmin_login.aspx" />
+    <Content Include="addmin_viweaccident.aspx" />
+    <Content Include="addStaff.aspx" />
+    <Content Include="admin_home.aspx" />
+    <Content Include="admin_update.aspx" />
+    <Content Include="bootsrap\css\bootstrap.min.css" />
+    <Content Include="bootsrap\js\bootstrap.min.js" />
+    <Content Include="bootsrap\js\jquery-3.3.1.slim.min.js" />
+    <Content Include="bootsrap\js\popper.min.js" />
+    <Content Include="chart.aspx" />
+    <Content Include="css\customstylesheet.css" />
+    <Content Include="css\style.css" />
+    <Content Include="datatable\css\jquery.dataTables.min.css" />
+    <Content Include="datatable\js\jquery.dataTables.min.js" />
+    <Content Include="fontawsom\css\all.css" />
+    <Content Include="fontawsom\css\all.min.css" />
+    <Content Include="fontawsom\css\brands.css" />
+    <Content Include="fontawsom\css\brands.min.css" />
+    <Content Include="fontawsom\css\fontawesome.css" />
+    <Content Include="fontawsom\css\fontawesome.min.css" />
+    <Content Include="fontawsom\css\regular.css" />
+    <Content Include="fontawsom\css\regular.min.css" />
+    <Content Include="fontawsom\css\solid.css" />
+    <Content Include="fontawsom\css\solid.min.css" />
+    <Content Include="fontawsom\css\svg-with-js.css" />
+    <Content Include="fontawsom\css\svg-with-js.min.css" />
+    <Content Include="fontawsom\css\v4-font-face.css" />
+    <Content Include="fontawsom\css\v4-font-face.min.css" />
+    <Content Include="fontawsom\css\v4-shims.css" />
+    <Content Include="fontawsom\css\v4-shims.min.css" />
+    <Content Include="fontawsom\css\v5-font-face.css" />
+    <Content Include="fontawsom\css\v5-font-face.min.css" />
+    <Content Include="fontawsom\js\all.js" />
+    <Content Include="fontawsom\js\all.min.js" />
+    <Content Include="fontawsom\js\brands.js" />
+    <Content Include="fontawsom\js\brands.min.js" />
+    <Content Include="fontawsom\js\conflict-detection.js" />
+    <Content Include="fontawsom\js\conflict-detection.min.js" />
+    <Content Include="fontawsom\js\fontawesome.js" />
+    <Content Include="fontawsom\js\fontawesome.min.js" />
+    <Content Include="fontawsom\js\regular.js" />
+    <Content Include="fontawsom\js\regular.min.js" />
+    <Content Include="fontawsom\js\solid.js" />
+    <Content Include="fontawsom\js\solid.min.js" />
+    <Content Include="fontawsom\js\v4-shims.js" />
+    <Content Include="fontawsom\js\v4-shims.min.js" />
+    <Content Include="fontawsom\LICENSE.txt" />
+    <Content Include="fontawsom\sprites\brands.svg" />
+    <Content Include="fontawsom\sprites\regular.svg" />
+    <Content Include="fontawsom\sprites\solid.svg" />
+    <Content Include="fontawsom\svgs\brands\42-group.svg" />
+    <Content Include="fontawsom\svgs\brands\500px.svg" />
+    <Content Include="fontawsom\svgs\brands\accessible-icon.svg" />
+    <Content Include="fontawsom\svgs\brands\accusoft.svg" />
+    <Content Include="fontawsom\svgs\brands\adn.svg" />
+    <Content Include="fontawsom\svgs\brands\adversal.svg" />
+    <Content Include="fontawsom\svgs\brands\affiliatetheme.svg" />
+    <Content Include="fontawsom\svgs\brands\airbnb.svg" />
+    <Content Include="fontawsom\svgs\brands\algolia.svg" />
+    <Content Include="fontawsom\svgs\brands\alipay.svg" />
+    <Content Include="fontawsom\svgs\brands\amazon-pay.svg" />
+    <Content Include="fontawsom\svgs\brands\amazon.svg" />
+    <Content Include="fontawsom\svgs\brands\amilia.svg" />
+    <Content Include="fontawsom\svgs\brands\android.svg" />
+    <Content Include="fontawsom\svgs\brands\angellist.svg" />
+    <Content Include="fontawsom\svgs\brands\angrycreative.svg" />
+    <Content Include="fontawsom\svgs\brands\angular.svg" />
+    <Content Include="fontawsom\svgs\brands\app-store-ios.svg" />
+    <Content Include="fontawsom\svgs\brands\app-store.svg" />
+    <Content Include="fontawsom\svgs\brands\apper.svg" />
+    <Content Include="fontawsom\svgs\brands\apple-pay.svg" />
+    <Content Include="fontawsom\svgs\brands\apple.svg" />
+    <Content Include="fontawsom\svgs\brands\artstation.svg" />
+    <Content Include="fontawsom\svgs\brands\asymmetrik.svg" />
+    <Content Include="fontawsom\svgs\brands\atlassian.svg" />
+    <Content Include="fontawsom\svgs\brands\audible.svg" />
+    <Content Include="fontawsom\svgs\brands\autoprefixer.svg" />
+    <Content Include="fontawsom\svgs\brands\avianex.svg" />
+    <Content Include="fontawsom\svgs\brands\aviato.svg" />
+    <Content Include="fontawsom\svgs\brands\aws.svg" />
+    <Content Include="fontawsom\svgs\brands\bandcamp.svg" />
+    <Content Include="fontawsom\svgs\brands\battle-net.svg" />
+    <Content Include="fontawsom\svgs\brands\behance-square.svg" />
+    <Content Include="fontawsom\svgs\brands\behance.svg" />
+    <Content Include="fontawsom\svgs\brands\bilibili.svg" />
+    <Content Include="fontawsom\svgs\brands\bimobject.svg" />
+    <Content Include="fontawsom\svgs\brands\bitbucket.svg" />
+    <Content Include="fontawsom\svgs\brands\bitcoin.svg" />
+    <Content Include="fontawsom\svgs\brands\bity.svg" />
+    <Content Include="fontawsom\svgs\brands\black-tie.svg" />
+    <Content Include="fontawsom\svgs\brands\blackberry.svg" />
+    <Content Include="fontawsom\svgs\brands\blogger-b.svg" />
+    <Content Include="fontawsom\svgs\brands\blogger.svg" />
+    <Content Include="fontawsom\svgs\brands\bluetooth-b.svg" />
+    <Content Include="fontawsom\svgs\brands\bluetooth.svg" />
+    <Content Include="fontawsom\svgs\brands\bootstrap.svg" />
+    <Content Include="fontawsom\svgs\brands\bots.svg" />
+    <Content Include="fontawsom\svgs\brands\btc.svg" />
+    <Content Include="fontawsom\svgs\brands\buffer.svg" />
+    <Content Include="fontawsom\svgs\brands\buromobelexperte.svg" />
+    <Content Include="fontawsom\svgs\brands\buy-n-large.svg" />
+    <Content Include="fontawsom\svgs\brands\buysellads.svg" />
+    <Content Include="fontawsom\svgs\brands\canadian-maple-leaf.svg" />
+    <Content Include="fontawsom\svgs\brands\cc-amazon-pay.svg" />
+    <Content Include="fontawsom\svgs\brands\cc-amex.svg" />
+    <Content Include="fontawsom\svgs\brands\cc-apple-pay.svg" />
+    <Content Include="fontawsom\svgs\brands\cc-diners-club.svg" />
+    <Content Include="fontawsom\svgs\brands\cc-discover.svg" />
+    <Content Include="fontawsom\svgs\brands\cc-jcb.svg" />
+    <Content Include="fontawsom\svgs\brands\cc-mastercard.svg" />
+    <Content Include="fontawsom\svgs\brands\cc-paypal.svg" />
+    <Content Include="fontawsom\svgs\brands\cc-stripe.svg" />
+    <Content Include="fontawsom\svgs\brands\cc-visa.svg" />
+    <Content Include="fontawsom\svgs\brands\centercode.svg" />
+    <Content Include="fontawsom\svgs\brands\centos.svg" />
+    <Content Include="fontawsom\svgs\brands\chrome.svg" />
+    <Content Include="fontawsom\svgs\brands\chromecast.svg" />
+    <Content Include="fontawsom\svgs\brands\cloudflare.svg" />
+    <Content Include="fontawsom\svgs\brands\cloudscale.svg" />
+    <Content Include="fontawsom\svgs\brands\cloudsmith.svg" />
+    <Content Include="fontawsom\svgs\brands\cloudversify.svg" />
+    <Content Include="fontawsom\svgs\brands\cmplid.svg" />
+    <Content Include="fontawsom\svgs\brands\codepen.svg" />
+    <Content Include="fontawsom\svgs\brands\codiepie.svg" />
+    <Content Include="fontawsom\svgs\brands\confluence.svg" />
+    <Content Include="fontawsom\svgs\brands\connectdevelop.svg" />
+    <Content Include="fontawsom\svgs\brands\contao.svg" />
+    <Content Include="fontawsom\svgs\brands\cotton-bureau.svg" />
+    <Content Include="fontawsom\svgs\brands\cpanel.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-by.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-nc-eu.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-nc-jp.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-nc.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-nd.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-pd-alt.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-pd.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-remix.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-sa.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-sampling-plus.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-sampling.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-share.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons-zero.svg" />
+    <Content Include="fontawsom\svgs\brands\creative-commons.svg" />
+    <Content Include="fontawsom\svgs\brands\critical-role.svg" />
+    <Content Include="fontawsom\svgs\brands\css3-alt.svg" />
+    <Content Include="fontawsom\svgs\brands\css3.svg" />
+    <Content Include="fontawsom\svgs\brands\cuttlefish.svg" />
+    <Content Include="fontawsom\svgs\brands\d-and-d-beyond.svg" />
+    <Content Include="fontawsom\svgs\brands\d-and-d.svg" />
+    <Content Include="fontawsom\svgs\brands\dailymotion.svg" />
+    <Content Include="fontawsom\svgs\brands\dashcube.svg" />
+    <Content Include="fontawsom\svgs\brands\deezer.svg" />
+    <Content Include="fontawsom\svgs\brands\delicious.svg" />
+    <Content Include="fontawsom\svgs\brands\deploydog.svg" />
+    <Content Include="fontawsom\svgs\brands\deskpro.svg" />
+    <Content Include="fontawsom\svgs\brands\dev.svg" />
+    <Content Include="fontawsom\svgs\brands\deviantart.svg" />
+    <Content Include="fontawsom\svgs\brands\dhl.svg" />
+    <Content Include="fontawsom\svgs\brands\diaspora.svg" />
+    <Content Include="fontawsom\svgs\brands\digg.svg" />
+    <Content Include="fontawsom\svgs\brands\digital-ocean.svg" />
+    <Content Include="fontawsom\svgs\brands\discord.svg" />
+    <Content Include="fontawsom\svgs\brands\discourse.svg" />
+    <Content Include="fontawsom\svgs\brands\dochub.svg" />
+    <Content Include="fontawsom\svgs\brands\docker.svg" />
+    <Content Include="fontawsom\svgs\brands\draft2digital.svg" />
+    <Content Include="fontawsom\svgs\brands\dribbble-square.svg" />
+    <Content Include="fontawsom\svgs\brands\dribbble.svg" />
+    <Content Include="fontawsom\svgs\brands\dropbox.svg" />
+    <Content Include="fontawsom\svgs\brands\drupal.svg" />
+    <Content Include="fontawsom\svgs\brands\dyalog.svg" />
+    <Content Include="fontawsom\svgs\brands\earlybirds.svg" />
+    <Content Include="fontawsom\svgs\brands\ebay.svg" />
+    <Content Include="fontawsom\svgs\brands\edge-legacy.svg" />
+    <Content Include="fontawsom\svgs\brands\edge.svg" />
+    <Content Include="fontawsom\svgs\brands\elementor.svg" />
+    <Content Include="fontawsom\svgs\brands\ello.svg" />
+    <Content Include="fontawsom\svgs\brands\ember.svg" />
+    <Content Include="fontawsom\svgs\brands\empire.svg" />
+    <Content Include="fontawsom\svgs\brands\envira.svg" />
+    <Content Include="fontawsom\svgs\brands\erlang.svg" />
+    <Content Include="fontawsom\svgs\brands\ethereum.svg" />
+    <Content Include="fontawsom\svgs\brands\etsy.svg" />
+    <Content Include="fontawsom\svgs\brands\evernote.svg" />
+    <Content Include="fontawsom\svgs\brands\expeditedssl.svg" />
+    <Content Include="fontawsom\svgs\brands\facebook-f.svg" />
+    <Content Include="fontawsom\svgs\brands\facebook-messenger.svg" />
+    <Content Include="fontawsom\svgs\brands\facebook-square.svg" />
+    <Content Include="fontawsom\svgs\brands\facebook.svg" />
+    <Content Include="fontawsom\svgs\brands\fantasy-flight-games.svg" />
+    <Content Include="fontawsom\svgs\brands\fedex.svg" />
+    <Content Include="fontawsom\svgs\brands\fedora.svg" />
+    <Content Include="fontawsom\svgs\brands\figma.svg" />
+    <Content Include="fontawsom\svgs\brands\firefox-browser.svg" />
+    <Content Include="fontawsom\svgs\brands\firefox.svg" />
+    <Content Include="fontawsom\svgs\brands\first-order-alt.svg" />
+    <Content Include="fontawsom\svgs\brands\first-order.svg" />
+    <Content Include="fontawsom\svgs\brands\firstdraft.svg" />
+    <Content Include="fontawsom\svgs\brands\flickr.svg" />
+    <Content Include="fontawsom\svgs\brands\flipboard.svg" />
+    <Content Include="fontawsom\svgs\brands\fly.svg" />
+    <Content Include="fontawsom\svgs\brands\font-awesome.svg" />
+    <Content Include="fontawsom\svgs\brands\fonticons-fi.svg" />
+    <Content Include="fontawsom\svgs\brands\fonticons.svg" />
+    <Content Include="fontawsom\svgs\brands\fort-awesome-alt.svg" />
+    <Content Include="fontawsom\svgs\brands\fort-awesome.svg" />
+    <Content Include="fontawsom\svgs\brands\forumbee.svg" />
+    <Content Include="fontawsom\svgs\brands\foursquare.svg" />
+    <Content Include="fontawsom\svgs\brands\free-code-camp.svg" />
+    <Content Include="fontawsom\svgs\brands\freebsd.svg" />
+    <Content Include="fontawsom\svgs\brands\fulcrum.svg" />
+    <Content Include="fontawsom\svgs\brands\galactic-republic.svg" />
+    <Content Include="fontawsom\svgs\brands\galactic-senate.svg" />
+    <Content Include="fontawsom\svgs\brands\get-pocket.svg" />
+    <Content Include="fontawsom\svgs\brands\gg-circle.svg" />
+    <Content Include="fontawsom\svgs\brands\gg.svg" />
+    <Content Include="fontawsom\svgs\brands\git-alt.svg" />
+    <Content Include="fontawsom\svgs\brands\git-square.svg" />
+    <Content Include="fontawsom\svgs\brands\git.svg" />
+    <Content Include="fontawsom\svgs\brands\github-alt.svg" />
+    <Content Include="fontawsom\svgs\brands\github-square.svg" />
+    <Content Include="fontawsom\svgs\brands\github.svg" />
+    <Content Include="fontawsom\svgs\brands\gitkraken.svg" />
+    <Content Include="fontawsom\svgs\brands\gitlab.svg" />
+    <Content Include="fontawsom\svgs\brands\gitter.svg" />
+    <Content Include="fontawsom\svgs\brands\glide-g.svg" />
+    <Content Include="fontawsom\svgs\brands\glide.svg" />
+    <Content Include="fontawsom\svgs\brands\gofore.svg" />
+    <Content Include="fontawsom\svgs\brands\golang.svg" />
+    <Content Include="fontawsom\svgs\brands\goodreads-g.svg" />
+    <Content Include="fontawsom\svgs\brands\goodreads.svg" />
+    <Content Include="fontawsom\svgs\brands\google-drive.svg" />
+    <Content Include="fontawsom\svgs\brands\google-pay.svg" />
+    <Content Include="fontawsom\svgs\brands\google-play.svg" />
+    <Content Include="fontawsom\svgs\brands\google-plus-g.svg" />
+    <Content Include="fontawsom\svgs\brands\google-plus-square.svg" />
+    <Content Include="fontawsom\svgs\brands\google-plus.svg" />
+    <Content Include="fontawsom\svgs\brands\google-wallet.svg" />
+    <Content Include="fontawsom\svgs\brands\google.svg" />
+    <Content Include="fontawsom\svgs\brands\gratipay.svg" />
+    <Content Include="fontawsom\svgs\brands\grav.svg" />
+    <Content Include="fontawsom\svgs\brands\gripfire.svg" />
+    <Content Include="fontawsom\svgs\brands\grunt.svg" />
+    <Content Include="fontawsom\svgs\brands\guilded.svg" />
+    <Content Include="fontawsom\svgs\brands\gulp.svg" />
+    <Content Include="fontawsom\svgs\brands\hacker-news-square.svg" />
+    <Content Include="fontawsom\svgs\brands\hacker-news.svg" />
+    <Content Include="fontawsom\svgs\brands\hackerrank.svg" />
+    <Content Include="fontawsom\svgs\brands\hashnode.svg" />
+    <Content Include="fontawsom\svgs\brands\hips.svg" />
+    <Content Include="fontawsom\svgs\brands\hire-a-helper.svg" />
+    <Content Include="fontawsom\svgs\brands\hive.svg" />
+    <Content Include="fontawsom\svgs\brands\hooli.svg" />
+    <Content Include="fontawsom\svgs\brands\hornbill.svg" />
+    <Content Include="fontawsom\svgs\brands\hotjar.svg" />
+    <Content Include="fontawsom\svgs\brands\houzz.svg" />
+    <Content Include="fontawsom\svgs\brands\html5.svg" />
+    <Content Include="fontawsom\svgs\brands\hubspot.svg" />
+    <Content Include="fontawsom\svgs\brands\ideal.svg" />
+    <Content Include="fontawsom\svgs\brands\imdb.svg" />
+    <Content Include="fontawsom\svgs\brands\instagram-square.svg" />
+    <Content Include="fontawsom\svgs\brands\instagram.svg" />
+    <Content Include="fontawsom\svgs\brands\instalod.svg" />
+    <Content Include="fontawsom\svgs\brands\intercom.svg" />
+    <Content Include="fontawsom\svgs\brands\internet-explorer.svg" />
+    <Content Include="fontawsom\svgs\brands\invision.svg" />
+    <Content Include="fontawsom\svgs\brands\ioxhost.svg" />
+    <Content Include="fontawsom\svgs\brands\itch-io.svg" />
+    <Content Include="fontawsom\svgs\brands\itunes-note.svg" />
+    <Content Include="fontawsom\svgs\brands\itunes.svg" />
+    <Content Include="fontawsom\svgs\brands\java.svg" />
+    <Content Include="fontawsom\svgs\brands\jedi-order.svg" />
+    <Content Include="fontawsom\svgs\brands\jenkins.svg" />
+    <Content Include="fontawsom\svgs\brands\jira.svg" />
+    <Content Include="fontawsom\svgs\brands\joget.svg" />
+    <Content Include="fontawsom\svgs\brands\joomla.svg" />
+    <Content Include="fontawsom\svgs\brands\js-square.svg" />
+    <Content Include="fontawsom\svgs\brands\js.svg" />
+    <Content Include="fontawsom\svgs\brands\jsfiddle.svg" />
+    <Content Include="fontawsom\svgs\brands\kaggle.svg" />
+    <Content Include="fontawsom\svgs\brands\keybase.svg" />
+    <Content Include="fontawsom\svgs\brands\keycdn.svg" />
+    <Content Include="fontawsom\svgs\brands\kickstarter-k.svg" />
+    <Content Include="fontawsom\svgs\brands\kickstarter.svg" />
+    <Content Include="fontawsom\svgs\brands\korvue.svg" />
+    <Content Include="fontawsom\svgs\brands\laravel.svg" />
+    <Content Include="fontawsom\svgs\brands\lastfm-square.svg" />
+    <Content Include="fontawsom\svgs\brands\lastfm.svg" />
+    <Content Include="fontawsom\svgs\brands\leanpub.svg" />
+    <Content Include="fontawsom\svgs\brands\less.svg" />
+    <Content Include="fontawsom\svgs\brands\line.svg" />
+    <Content Include="fontawsom\svgs\brands\linkedin-in.svg" />
+    <Content Include="fontawsom\svgs\brands\linkedin.svg" />
+    <Content Include="fontawsom\svgs\brands\linode.svg" />
+    <Content Include="fontawsom\svgs\brands\linux.svg" />
+    <Content Include="fontawsom\svgs\brands\lyft.svg" />
+    <Content Include="fontawsom\svgs\brands\magento.svg" />
+    <Content Include="fontawsom\svgs\brands\mailchimp.svg" />
+    <Content Include="fontawsom\svgs\brands\mandalorian.svg" />
+    <Content Include="fontawsom\svgs\brands\markdown.svg" />
+    <Content Include="fontawsom\svgs\brands\mastodon.svg" />
+    <Content Include="fontawsom\svgs\brands\maxcdn.svg" />
+    <Content Include="fontawsom\svgs\brands\mdb.svg" />
+    <Content Include="fontawsom\svgs\brands\medapps.svg" />
+    <Content Include="fontawsom\svgs\brands\medium.svg" />
+    <Content Include="fontawsom\svgs\brands\medrt.svg" />
+    <Content Include="fontawsom\svgs\brands\meetup.svg" />
+    <Content Include="fontawsom\svgs\brands\megaport.svg" />
+    <Content Include="fontawsom\svgs\brands\mendeley.svg" />
+    <Content Include="fontawsom\svgs\brands\microblog.svg" />
+    <Content Include="fontawsom\svgs\brands\microsoft.svg" />
+    <Content Include="fontawsom\svgs\brands\mix.svg" />
+    <Content Include="fontawsom\svgs\brands\mixcloud.svg" />
+    <Content Include="fontawsom\svgs\brands\mixer.svg" />
+    <Content Include="fontawsom\svgs\brands\mizuni.svg" />
+    <Content Include="fontawsom\svgs\brands\modx.svg" />
+    <Content Include="fontawsom\svgs\brands\monero.svg" />
+    <Content Include="fontawsom\svgs\brands\napster.svg" />
+    <Content Include="fontawsom\svgs\brands\neos.svg" />
+    <Content Include="fontawsom\svgs\brands\nfc-directional.svg" />
+    <Content Include="fontawsom\svgs\brands\nfc-symbol.svg" />
+    <Content Include="fontawsom\svgs\brands\nimblr.svg" />
+    <Content Include="fontawsom\svgs\brands\node-js.svg" />
+    <Content Include="fontawsom\svgs\brands\node.svg" />
+    <Content Include="fontawsom\svgs\brands\npm.svg" />
+    <Content Include="fontawsom\svgs\brands\ns8.svg" />
+    <Content Include="fontawsom\svgs\brands\nutritionix.svg" />
+    <Content Include="fontawsom\svgs\brands\octopus-deploy.svg" />
+    <Content Include="fontawsom\svgs\brands\odnoklassniki-square.svg" />
+    <Content Include="fontawsom\svgs\brands\odnoklassniki.svg" />
+    <Content Include="fontawsom\svgs\brands\old-republic.svg" />
+    <Content Include="fontawsom\svgs\brands\opencart.svg" />
+    <Content Include="fontawsom\svgs\brands\openid.svg" />
+    <Content Include="fontawsom\svgs\brands\opera.svg" />
+    <Content Include="fontawsom\svgs\brands\optin-monster.svg" />
+    <Content Include="fontawsom\svgs\brands\orcid.svg" />
+    <Content Include="fontawsom\svgs\brands\osi.svg" />
+    <Content Include="fontawsom\svgs\brands\padlet.svg" />
+    <Content Include="fontawsom\svgs\brands\page4.svg" />
+    <Content Include="fontawsom\svgs\brands\pagelines.svg" />
+    <Content Include="fontawsom\svgs\brands\palfed.svg" />
+    <Content Include="fontawsom\svgs\brands\patreon.svg" />
+    <Content Include="fontawsom\svgs\brands\paypal.svg" />
+    <Content Include="fontawsom\svgs\brands\perbyte.svg" />
+    <Content Include="fontawsom\svgs\brands\periscope.svg" />
+    <Content Include="fontawsom\svgs\brands\phabricator.svg" />
+    <Content Include="fontawsom\svgs\brands\phoenix-framework.svg" />
+    <Content Include="fontawsom\svgs\brands\phoenix-squadron.svg" />
+    <Content Include="fontawsom\svgs\brands\php.svg" />
+    <Content Include="fontawsom\svgs\brands\pied-piper-alt.svg" />
+    <Content Include="fontawsom\svgs\brands\pied-piper-hat.svg" />
+    <Content Include="fontawsom\svgs\brands\pied-piper-pp.svg" />
+    <Content Include="fontawsom\svgs\brands\pied-piper-square.svg" />
+    <Content Include="fontawsom\svgs\brands\pied-piper.svg" />
+    <Content Include="fontawsom\svgs\brands\pinterest-p.svg" />
+    <Content Include="fontawsom\svgs\brands\pinterest-square.svg" />
+    <Content Include="fontawsom\svgs\brands\pinterest.svg" />
+    <Content Include="fontawsom\svgs\brands\pix.svg" />
+    <Content Include="fontawsom\svgs\brands\playstation.svg" />
+    <Content Include="fontawsom\svgs\brands\product-hunt.svg" />
+    <Content Include="fontawsom\svgs\brands\pushed.svg" />
+    <Content Include="fontawsom\svgs\brands\python.svg" />
+    <Content Include="fontawsom\svgs\brands\qq.svg" />
+    <Content Include="fontawsom\svgs\brands\quinscape.svg" />
+    <Content Include="fontawsom\svgs\brands\quora.svg" />
+    <Content Include="fontawsom\svgs\brands\r-project.svg" />
+    <Content Include="fontawsom\svgs\brands\raspberry-pi.svg" />
+    <Content Include="fontawsom\svgs\brands\ravelry.svg" />
+    <Content Include="fontawsom\svgs\brands\react.svg" />
+    <Content Include="fontawsom\svgs\brands\reacteurope.svg" />
+    <Content Include="fontawsom\svgs\brands\readme.svg" />
+    <Content Include="fontawsom\svgs\brands\rebel.svg" />
+    <Content Include="fontawsom\svgs\brands\red-river.svg" />
+    <Content Include="fontawsom\svgs\brands\reddit-alien.svg" />
+    <Content Include="fontawsom\svgs\brands\reddit-square.svg" />
+    <Content Include="fontawsom\svgs\brands\reddit.svg" />
+    <Content Include="fontawsom\svgs\brands\redhat.svg" />
+    <Content Include="fontawsom\svgs\brands\renren.svg" />
+    <Content Include="fontawsom\svgs\brands\replyd.svg" />
+    <Content Include="fontawsom\svgs\brands\researchgate.svg" />
+    <Content Include="fontawsom\svgs\brands\resolving.svg" />
+    <Content Include="fontawsom\svgs\brands\rev.svg" />
+    <Content Include="fontawsom\svgs\brands\rocketchat.svg" />
+    <Content Include="fontawsom\svgs\brands\rockrms.svg" />
+    <Content Include="fontawsom\svgs\brands\rust.svg" />
+    <Content Include="fontawsom\svgs\brands\safari.svg" />
+    <Content Include="fontawsom\svgs\brands\salesforce.svg" />
+    <Content Include="fontawsom\svgs\brands\sass.svg" />
+    <Content Include="fontawsom\svgs\brands\schlix.svg" />
+    <Content Include="fontawsom\svgs\brands\screenpal.svg" />
+    <Content Include="fontawsom\svgs\brands\scribd.svg" />
+    <Content Include="fontawsom\svgs\brands\searchengin.svg" />
+    <Content Include="fontawsom\svgs\brands\sellcast.svg" />
+    <Content Include="fontawsom\svgs\brands\sellsy.svg" />
+    <Content Include="fontawsom\svgs\brands\servicestack.svg" />
+    <Content Include="fontawsom\svgs\brands\shirtsinbulk.svg" />
+    <Content Include="fontawsom\svgs\brands\shopify.svg" />
+    <Content Include="fontawsom\svgs\brands\shopware.svg" />
+    <Content Include="fontawsom\svgs\brands\simplybuilt.svg" />
+    <Content Include="fontawsom\svgs\brands\sistrix.svg" />
+    <Content Include="fontawsom\svgs\brands\sith.svg" />
+    <Content Include="fontawsom\svgs\brands\sitrox.svg" />
+    <Content Include="fontawsom\svgs\brands\sketch.svg" />
+    <Content Include="fontawsom\svgs\brands\skyatlas.svg" />
+    <Content Include="fontawsom\svgs\brands\skype.svg" />
+    <Content Include="fontawsom\svgs\brands\slack.svg" />
+    <Content Include="fontawsom\svgs\brands\slideshare.svg" />
+    <Content Include="fontawsom\svgs\brands\snapchat-square.svg" />
+    <Content Include="fontawsom\svgs\brands\snapchat.svg" />
+    <Content Include="fontawsom\svgs\brands\soundcloud.svg" />
+    <Content Include="fontawsom\svgs\brands\sourcetree.svg" />
+    <Content Include="fontawsom\svgs\brands\speakap.svg" />
+    <Content Include="fontawsom\svgs\brands\speaker-deck.svg" />
+    <Content Include="fontawsom\svgs\brands\spotify.svg" />
+    <Content Include="fontawsom\svgs\brands\square-font-awesome-stroke.svg" />
+    <Content Include="fontawsom\svgs\brands\square-font-awesome.svg" />
+    <Content Include="fontawsom\svgs\brands\squarespace.svg" />
+    <Content Include="fontawsom\svgs\brands\stack-exchange.svg" />
+    <Content Include="fontawsom\svgs\brands\stack-overflow.svg" />
+    <Content Include="fontawsom\svgs\brands\stackpath.svg" />
+    <Content Include="fontawsom\svgs\brands\staylinked.svg" />
+    <Content Include="fontawsom\svgs\brands\steam-square.svg" />
+    <Content Include="fontawsom\svgs\brands\steam-symbol.svg" />
+    <Content Include="fontawsom\svgs\brands\steam.svg" />
+    <Content Include="fontawsom\svgs\brands\sticker-mule.svg" />
+    <Content Include="fontawsom\svgs\brands\strava.svg" />
+    <Content Include="fontawsom\svgs\brands\stripe-s.svg" />
+    <Content Include="fontawsom\svgs\brands\stripe.svg" />
+    <Content Include="fontawsom\svgs\brands\studiovinari.svg" />
+    <Content Include="fontawsom\svgs\brands\stumbleupon-circle.svg" />
+    <Content Include="fontawsom\svgs\brands\stumbleupon.svg" />
+    <Content Include="fontawsom\svgs\brands\superpowers.svg" />
+    <Content Include="fontawsom\svgs\brands\supple.svg" />
+    <Content Include="fontawsom\svgs\brands\suse.svg" />
+    <Content Include="fontawsom\svgs\brands\swift.svg" />
+    <Content Include="fontawsom\svgs\brands\symfony.svg" />
+    <Content Include="fontawsom\svgs\brands\teamspeak.svg" />
+    <Content Include="fontawsom\svgs\brands\telegram.svg" />
+    <Content Include="fontawsom\svgs\brands\tencent-weibo.svg" />
+    <Content Include="fontawsom\svgs\brands\the-red-yeti.svg" />
+    <Content Include="fontawsom\svgs\brands\themeco.svg" />
+    <Content Include="fontawsom\svgs\brands\themeisle.svg" />
+    <Content Include="fontawsom\svgs\brands\think-peaks.svg" />
+    <Content Include="fontawsom\svgs\brands\tiktok.svg" />
+    <Content Include="fontawsom\svgs\brands\trade-federation.svg" />
+    <Content Include="fontawsom\svgs\brands\trello.svg" />
+    <Content Include="fontawsom\svgs\brands\tumblr-square.svg" />
+    <Content Include="fontawsom\svgs\brands\tumblr.svg" />
+    <Content Include="fontawsom\svgs\brands\twitch.svg" />
+    <Content Include="fontawsom\svgs\brands\twitter-square.svg" />
+    <Content Include="fontawsom\svgs\brands\twitter.svg" />
+    <Content Include="fontawsom\svgs\brands\typo3.svg" />
+    <Content Include="fontawsom\svgs\brands\uber.svg" />
+    <Content Include="fontawsom\svgs\brands\ubuntu.svg" />
+    <Content Include="fontawsom\svgs\brands\uikit.svg" />
+    <Content Include="fontawsom\svgs\brands\umbraco.svg" />
+    <Content Include="fontawsom\svgs\brands\uncharted.svg" />
+    <Content Include="fontawsom\svgs\brands\uniregistry.svg" />
+    <Content Include="fontawsom\svgs\brands\unity.svg" />
+    <Content Include="fontawsom\svgs\brands\unsplash.svg" />
+    <Content Include="fontawsom\svgs\brands\untappd.svg" />
+    <Content Include="fontawsom\svgs\brands\ups.svg" />
+    <Content Include="fontawsom\svgs\brands\usb.svg" />
+    <Content Include="fontawsom\svgs\brands\usps.svg" />
+    <Content Include="fontawsom\svgs\brands\ussunnah.svg" />
+    <Content Include="fontawsom\svgs\brands\vaadin.svg" />
+    <Content Include="fontawsom\svgs\brands\viacoin.svg" />
+    <Content Include="fontawsom\svgs\brands\viadeo-square.svg" />
+    <Content Include="fontawsom\svgs\brands\viadeo.svg" />
+    <Content Include="fontawsom\svgs\brands\viber.svg" />
+    <Content Include="fontawsom\svgs\brands\vimeo-square.svg" />
+    <Content Include="fontawsom\svgs\brands\vimeo-v.svg" />
+    <Content Include="fontawsom\svgs\brands\vimeo.svg" />
+    <Content Include="fontawsom\svgs\brands\vine.svg" />
+    <Content Include="fontawsom\svgs\brands\vk.svg" />
+    <Content Include="fontawsom\svgs\brands\vnv.svg" />
+    <Content Include="fontawsom\svgs\brands\vuejs.svg" />
+    <Content Include="fontawsom\svgs\brands\watchman-monitoring.svg" />
+    <Content Include="fontawsom\svgs\brands\waze.svg" />
+    <Content Include="fontawsom\svgs\brands\weebly.svg" />
+    <Content Include="fontawsom\svgs\brands\weibo.svg" />
+    <Content Include="fontawsom\svgs\brands\weixin.svg" />
+    <Content Include="fontawsom\svgs\brands\whatsapp-square.svg" />
+    <Content Include="fontawsom\svgs\brands\whatsapp.svg" />
+    <Content Include="fontawsom\svgs\brands\whmcs.svg" />
+    <Content Include="fontawsom\svgs\brands\wikipedia-w.svg" />
+    <Content Include="fontawsom\svgs\brands\windows.svg" />
+    <Content Include="fontawsom\svgs\brands\wirsindhandwerk.svg" />
+    <Content Include="fontawsom\svgs\brands\wix.svg" />
+    <Content Include="fontawsom\svgs\brands\wizards-of-the-coast.svg" />
+    <Content Include="fontawsom\svgs\brands\wodu.svg" />
+    <Content Include="fontawsom\svgs\brands\wolf-pack-battalion.svg" />
+    <Content Include="fontawsom\svgs\brands\wordpress-simple.svg" />
+    <Content Include="fontawsom\svgs\brands\wordpress.svg" />
+    <Content Include="fontawsom\svgs\brands\wpbeginner.svg" />
+    <Content Include="fontawsom\svgs\brands\wpexplorer.svg" />
+    <Content Include="fontawsom\svgs\brands\wpforms.svg" />
+    <Content Include="fontawsom\svgs\brands\wpressr.svg" />
+    <Content Include="fontawsom\svgs\brands\xbox.svg" />
+    <Content Include="fontawsom\svgs\brands\xing-square.svg" />
+    <Content Include="fontawsom\svgs\brands\xing.svg" />
+    <Content Include="fontawsom\svgs\brands\y-combinator.svg" />
+    <Content Include="fontawsom\svgs\brands\yahoo.svg" />
+    <Content Include="fontawsom\svgs\brands\yammer.svg" />
+    <Content Include="fontawsom\svgs\brands\yandex-international.svg" />
+    <Content Include="fontawsom\svgs\brands\yandex.svg" />
+    <Content Include="fontawsom\svgs\brands\yarn.svg" />
+    <Content Include="fontawsom\svgs\brands\yelp.svg" />
+    <Content Include="fontawsom\svgs\brands\yoast.svg" />
+    <Content Include="fontawsom\svgs\brands\youtube-square.svg" />
+    <Content Include="fontawsom\svgs\brands\youtube.svg" />
+    <Content Include="fontawsom\svgs\brands\zhihu.svg" />
+    <Content Include="fontawsom\svgs\regular\address-book.svg" />
+    <Content Include="fontawsom\svgs\regular\address-card.svg" />
+    <Content Include="fontawsom\svgs\regular\bell-slash.svg" />
+    <Content Include="fontawsom\svgs\regular\bell.svg" />
+    <Content Include="fontawsom\svgs\regular\bookmark.svg" />
+    <Content Include="fontawsom\svgs\regular\building.svg" />
+    <Content Include="fontawsom\svgs\regular\calendar-check.svg" />
+    <Content Include="fontawsom\svgs\regular\calendar-days.svg" />
+    <Content Include="fontawsom\svgs\regular\calendar-minus.svg" />
+    <Content Include="fontawsom\svgs\regular\calendar-plus.svg" />
+    <Content Include="fontawsom\svgs\regular\calendar-xmark.svg" />
+    <Content Include="fontawsom\svgs\regular\calendar.svg" />
+    <Content Include="fontawsom\svgs\regular\chart-bar.svg" />
+    <Content Include="fontawsom\svgs\regular\chess-bishop.svg" />
+    <Content Include="fontawsom\svgs\regular\chess-king.svg" />
+    <Content Include="fontawsom\svgs\regular\chess-knight.svg" />
+    <Content Include="fontawsom\svgs\regular\chess-pawn.svg" />
+    <Content Include="fontawsom\svgs\regular\chess-queen.svg" />
+    <Content Include="fontawsom\svgs\regular\chess-rook.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-check.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-dot.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-down.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-left.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-pause.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-play.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-question.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-right.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-stop.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-up.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-user.svg" />
+    <Content Include="fontawsom\svgs\regular\circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\regular\circle.svg" />
+    <Content Include="fontawsom\svgs\regular\clipboard.svg" />
+    <Content Include="fontawsom\svgs\regular\clock.svg" />
+    <Content Include="fontawsom\svgs\regular\clone.svg" />
+    <Content Include="fontawsom\svgs\regular\closed-captioning.svg" />
+    <Content Include="fontawsom\svgs\regular\comment-dots.svg" />
+    <Content Include="fontawsom\svgs\regular\comment.svg" />
+    <Content Include="fontawsom\svgs\regular\comments.svg" />
+    <Content Include="fontawsom\svgs\regular\compass.svg" />
+    <Content Include="fontawsom\svgs\regular\copy.svg" />
+    <Content Include="fontawsom\svgs\regular\copyright.svg" />
+    <Content Include="fontawsom\svgs\regular\credit-card.svg" />
+    <Content Include="fontawsom\svgs\regular\envelope-open.svg" />
+    <Content Include="fontawsom\svgs\regular\envelope.svg" />
+    <Content Include="fontawsom\svgs\regular\eye-slash.svg" />
+    <Content Include="fontawsom\svgs\regular\eye.svg" />
+    <Content Include="fontawsom\svgs\regular\face-angry.svg" />
+    <Content Include="fontawsom\svgs\regular\face-dizzy.svg" />
+    <Content Include="fontawsom\svgs\regular\face-flushed.svg" />
+    <Content Include="fontawsom\svgs\regular\face-frown-open.svg" />
+    <Content Include="fontawsom\svgs\regular\face-frown.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grimace.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-beam-sweat.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-beam.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-hearts.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-squint-tears.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-squint.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-stars.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-tears.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-tongue-squint.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-tongue-wink.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-tongue.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-wide.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin-wink.svg" />
+    <Content Include="fontawsom\svgs\regular\face-grin.svg" />
+    <Content Include="fontawsom\svgs\regular\face-kiss-beam.svg" />
+    <Content Include="fontawsom\svgs\regular\face-kiss-wink-heart.svg" />
+    <Content Include="fontawsom\svgs\regular\face-kiss.svg" />
+    <Content Include="fontawsom\svgs\regular\face-laugh-beam.svg" />
+    <Content Include="fontawsom\svgs\regular\face-laugh-squint.svg" />
+    <Content Include="fontawsom\svgs\regular\face-laugh-wink.svg" />
+    <Content Include="fontawsom\svgs\regular\face-laugh.svg" />
+    <Content Include="fontawsom\svgs\regular\face-meh-blank.svg" />
+    <Content Include="fontawsom\svgs\regular\face-meh.svg" />
+    <Content Include="fontawsom\svgs\regular\face-rolling-eyes.svg" />
+    <Content Include="fontawsom\svgs\regular\face-sad-cry.svg" />
+    <Content Include="fontawsom\svgs\regular\face-sad-tear.svg" />
+    <Content Include="fontawsom\svgs\regular\face-smile-beam.svg" />
+    <Content Include="fontawsom\svgs\regular\face-smile-wink.svg" />
+    <Content Include="fontawsom\svgs\regular\face-smile.svg" />
+    <Content Include="fontawsom\svgs\regular\face-surprise.svg" />
+    <Content Include="fontawsom\svgs\regular\face-tired.svg" />
+    <Content Include="fontawsom\svgs\regular\file-audio.svg" />
+    <Content Include="fontawsom\svgs\regular\file-code.svg" />
+    <Content Include="fontawsom\svgs\regular\file-excel.svg" />
+    <Content Include="fontawsom\svgs\regular\file-image.svg" />
+    <Content Include="fontawsom\svgs\regular\file-lines.svg" />
+    <Content Include="fontawsom\svgs\regular\file-pdf.svg" />
+    <Content Include="fontawsom\svgs\regular\file-powerpoint.svg" />
+    <Content Include="fontawsom\svgs\regular\file-video.svg" />
+    <Content Include="fontawsom\svgs\regular\file-word.svg" />
+    <Content Include="fontawsom\svgs\regular\file-zipper.svg" />
+    <Content Include="fontawsom\svgs\regular\file.svg" />
+    <Content Include="fontawsom\svgs\regular\flag.svg" />
+    <Content Include="fontawsom\svgs\regular\floppy-disk.svg" />
+    <Content Include="fontawsom\svgs\regular\folder-closed.svg" />
+    <Content Include="fontawsom\svgs\regular\folder-open.svg" />
+    <Content Include="fontawsom\svgs\regular\folder.svg" />
+    <Content Include="fontawsom\svgs\regular\font-awesome.svg" />
+    <Content Include="fontawsom\svgs\regular\futbol.svg" />
+    <Content Include="fontawsom\svgs\regular\gem.svg" />
+    <Content Include="fontawsom\svgs\regular\hand-back-fist.svg" />
+    <Content Include="fontawsom\svgs\regular\hand-lizard.svg" />
+    <Content Include="fontawsom\svgs\regular\hand-peace.svg" />
+    <Content Include="fontawsom\svgs\regular\hand-point-down.svg" />
+    <Content Include="fontawsom\svgs\regular\hand-point-left.svg" />
+    <Content Include="fontawsom\svgs\regular\hand-point-right.svg" />
+    <Content Include="fontawsom\svgs\regular\hand-point-up.svg" />
+    <Content Include="fontawsom\svgs\regular\hand-pointer.svg" />
+    <Content Include="fontawsom\svgs\regular\hand-scissors.svg" />
+    <Content Include="fontawsom\svgs\regular\hand-spock.svg" />
+    <Content Include="fontawsom\svgs\regular\hand.svg" />
+    <Content Include="fontawsom\svgs\regular\handshake.svg" />
+    <Content Include="fontawsom\svgs\regular\hard-drive.svg" />
+    <Content Include="fontawsom\svgs\regular\heart.svg" />
+    <Content Include="fontawsom\svgs\regular\hospital.svg" />
+    <Content Include="fontawsom\svgs\regular\hourglass.svg" />
+    <Content Include="fontawsom\svgs\regular\id-badge.svg" />
+    <Content Include="fontawsom\svgs\regular\id-card.svg" />
+    <Content Include="fontawsom\svgs\regular\image.svg" />
+    <Content Include="fontawsom\svgs\regular\images.svg" />
+    <Content Include="fontawsom\svgs\regular\keyboard.svg" />
+    <Content Include="fontawsom\svgs\regular\lemon.svg" />
+    <Content Include="fontawsom\svgs\regular\life-ring.svg" />
+    <Content Include="fontawsom\svgs\regular\lightbulb.svg" />
+    <Content Include="fontawsom\svgs\regular\map.svg" />
+    <Content Include="fontawsom\svgs\regular\message.svg" />
+    <Content Include="fontawsom\svgs\regular\money-bill-1.svg" />
+    <Content Include="fontawsom\svgs\regular\moon.svg" />
+    <Content Include="fontawsom\svgs\regular\newspaper.svg" />
+    <Content Include="fontawsom\svgs\regular\note-sticky.svg" />
+    <Content Include="fontawsom\svgs\regular\object-group.svg" />
+    <Content Include="fontawsom\svgs\regular\object-ungroup.svg" />
+    <Content Include="fontawsom\svgs\regular\paper-plane.svg" />
+    <Content Include="fontawsom\svgs\regular\paste.svg" />
+    <Content Include="fontawsom\svgs\regular\pen-to-square.svg" />
+    <Content Include="fontawsom\svgs\regular\rectangle-list.svg" />
+    <Content Include="fontawsom\svgs\regular\rectangle-xmark.svg" />
+    <Content Include="fontawsom\svgs\regular\registered.svg" />
+    <Content Include="fontawsom\svgs\regular\share-from-square.svg" />
+    <Content Include="fontawsom\svgs\regular\snowflake.svg" />
+    <Content Include="fontawsom\svgs\regular\square-caret-down.svg" />
+    <Content Include="fontawsom\svgs\regular\square-caret-left.svg" />
+    <Content Include="fontawsom\svgs\regular\square-caret-right.svg" />
+    <Content Include="fontawsom\svgs\regular\square-caret-up.svg" />
+    <Content Include="fontawsom\svgs\regular\square-check.svg" />
+    <Content Include="fontawsom\svgs\regular\square-full.svg" />
+    <Content Include="fontawsom\svgs\regular\square-minus.svg" />
+    <Content Include="fontawsom\svgs\regular\square-plus.svg" />
+    <Content Include="fontawsom\svgs\regular\square.svg" />
+    <Content Include="fontawsom\svgs\regular\star-half-stroke.svg" />
+    <Content Include="fontawsom\svgs\regular\star-half.svg" />
+    <Content Include="fontawsom\svgs\regular\star.svg" />
+    <Content Include="fontawsom\svgs\regular\sun.svg" />
+    <Content Include="fontawsom\svgs\regular\thumbs-down.svg" />
+    <Content Include="fontawsom\svgs\regular\thumbs-up.svg" />
+    <Content Include="fontawsom\svgs\regular\trash-can.svg" />
+    <Content Include="fontawsom\svgs\regular\user.svg" />
+    <Content Include="fontawsom\svgs\regular\window-maximize.svg" />
+    <Content Include="fontawsom\svgs\regular\window-minimize.svg" />
+    <Content Include="fontawsom\svgs\regular\window-restore.svg" />
+    <Content Include="fontawsom\svgs\solid\0.svg" />
+    <Content Include="fontawsom\svgs\solid\1.svg" />
+    <Content Include="fontawsom\svgs\solid\2.svg" />
+    <Content Include="fontawsom\svgs\solid\3.svg" />
+    <Content Include="fontawsom\svgs\solid\4.svg" />
+    <Content Include="fontawsom\svgs\solid\5.svg" />
+    <Content Include="fontawsom\svgs\solid\6.svg" />
+    <Content Include="fontawsom\svgs\solid\7.svg" />
+    <Content Include="fontawsom\svgs\solid\8.svg" />
+    <Content Include="fontawsom\svgs\solid\9.svg" />
+    <Content Include="fontawsom\svgs\solid\a.svg" />
+    <Content Include="fontawsom\svgs\solid\address-book.svg" />
+    <Content Include="fontawsom\svgs\solid\address-card.svg" />
+    <Content Include="fontawsom\svgs\solid\align-center.svg" />
+    <Content Include="fontawsom\svgs\solid\align-justify.svg" />
+    <Content Include="fontawsom\svgs\solid\align-left.svg" />
+    <Content Include="fontawsom\svgs\solid\align-right.svg" />
+    <Content Include="fontawsom\svgs\solid\anchor-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\anchor-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\anchor-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\anchor-lock.svg" />
+    <Content Include="fontawsom\svgs\solid\anchor.svg" />
+    <Content Include="fontawsom\svgs\solid\angle-down.svg" />
+    <Content Include="fontawsom\svgs\solid\angle-left.svg" />
+    <Content Include="fontawsom\svgs\solid\angle-right.svg" />
+    <Content Include="fontawsom\svgs\solid\angle-up.svg" />
+    <Content Include="fontawsom\svgs\solid\angles-down.svg" />
+    <Content Include="fontawsom\svgs\solid\angles-left.svg" />
+    <Content Include="fontawsom\svgs\solid\angles-right.svg" />
+    <Content Include="fontawsom\svgs\solid\angles-up.svg" />
+    <Content Include="fontawsom\svgs\solid\ankh.svg" />
+    <Content Include="fontawsom\svgs\solid\apple-whole.svg" />
+    <Content Include="fontawsom\svgs\solid\archway.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-down-1-9.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-down-9-1.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-down-a-z.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-down-long.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-down-short-wide.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-down-up-across-line.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-down-up-lock.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-down-wide-short.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-down-z-a.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-down.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-left-long.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-left.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-pointer.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-right-arrow-left.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-right-from-bracket.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-right-long.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-right-to-bracket.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-right-to-city.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-right.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-rotate-left.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-rotate-right.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-trend-down.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-trend-up.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-turn-down.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-turn-up.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-1-9.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-9-1.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-a-z.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-from-bracket.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-from-ground-water.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-from-water-pump.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-long.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-right-dots.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-right-from-square.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-short-wide.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-wide-short.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up-z-a.svg" />
+    <Content Include="fontawsom\svgs\solid\arrow-up.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-down-to-line.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-down-to-people.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-left-right-to-line.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-left-right.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-rotate.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-spin.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-split-up-and-left.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-to-circle.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-to-dot.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-to-eye.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-turn-right.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-turn-to-dots.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-up-down-left-right.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-up-down.svg" />
+    <Content Include="fontawsom\svgs\solid\arrows-up-to-line.svg" />
+    <Content Include="fontawsom\svgs\solid\asterisk.svg" />
+    <Content Include="fontawsom\svgs\solid\at.svg" />
+    <Content Include="fontawsom\svgs\solid\atom.svg" />
+    <Content Include="fontawsom\svgs\solid\audio-description.svg" />
+    <Content Include="fontawsom\svgs\solid\austral-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\award.svg" />
+    <Content Include="fontawsom\svgs\solid\b.svg" />
+    <Content Include="fontawsom\svgs\solid\baby-carriage.svg" />
+    <Content Include="fontawsom\svgs\solid\baby.svg" />
+    <Content Include="fontawsom\svgs\solid\backward-fast.svg" />
+    <Content Include="fontawsom\svgs\solid\backward-step.svg" />
+    <Content Include="fontawsom\svgs\solid\backward.svg" />
+    <Content Include="fontawsom\svgs\solid\bacon.svg" />
+    <Content Include="fontawsom\svgs\solid\bacteria.svg" />
+    <Content Include="fontawsom\svgs\solid\bacterium.svg" />
+    <Content Include="fontawsom\svgs\solid\bag-shopping.svg" />
+    <Content Include="fontawsom\svgs\solid\bahai.svg" />
+    <Content Include="fontawsom\svgs\solid\baht-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\ban-smoking.svg" />
+    <Content Include="fontawsom\svgs\solid\ban.svg" />
+    <Content Include="fontawsom\svgs\solid\bandage.svg" />
+    <Content Include="fontawsom\svgs\solid\barcode.svg" />
+    <Content Include="fontawsom\svgs\solid\bars-progress.svg" />
+    <Content Include="fontawsom\svgs\solid\bars-staggered.svg" />
+    <Content Include="fontawsom\svgs\solid\bars.svg" />
+    <Content Include="fontawsom\svgs\solid\baseball-bat-ball.svg" />
+    <Content Include="fontawsom\svgs\solid\baseball.svg" />
+    <Content Include="fontawsom\svgs\solid\basket-shopping.svg" />
+    <Content Include="fontawsom\svgs\solid\basketball.svg" />
+    <Content Include="fontawsom\svgs\solid\bath.svg" />
+    <Content Include="fontawsom\svgs\solid\battery-empty.svg" />
+    <Content Include="fontawsom\svgs\solid\battery-full.svg" />
+    <Content Include="fontawsom\svgs\solid\battery-half.svg" />
+    <Content Include="fontawsom\svgs\solid\battery-quarter.svg" />
+    <Content Include="fontawsom\svgs\solid\battery-three-quarters.svg" />
+    <Content Include="fontawsom\svgs\solid\bed-pulse.svg" />
+    <Content Include="fontawsom\svgs\solid\bed.svg" />
+    <Content Include="fontawsom\svgs\solid\beer-mug-empty.svg" />
+    <Content Include="fontawsom\svgs\solid\bell-concierge.svg" />
+    <Content Include="fontawsom\svgs\solid\bell-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\bell.svg" />
+    <Content Include="fontawsom\svgs\solid\bezier-curve.svg" />
+    <Content Include="fontawsom\svgs\solid\bicycle.svg" />
+    <Content Include="fontawsom\svgs\solid\binoculars.svg" />
+    <Content Include="fontawsom\svgs\solid\biohazard.svg" />
+    <Content Include="fontawsom\svgs\solid\bitcoin-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\blender-phone.svg" />
+    <Content Include="fontawsom\svgs\solid\blender.svg" />
+    <Content Include="fontawsom\svgs\solid\blog.svg" />
+    <Content Include="fontawsom\svgs\solid\bold.svg" />
+    <Content Include="fontawsom\svgs\solid\bolt-lightning.svg" />
+    <Content Include="fontawsom\svgs\solid\bolt.svg" />
+    <Content Include="fontawsom\svgs\solid\bomb.svg" />
+    <Content Include="fontawsom\svgs\solid\bone.svg" />
+    <Content Include="fontawsom\svgs\solid\bong.svg" />
+    <Content Include="fontawsom\svgs\solid\book-atlas.svg" />
+    <Content Include="fontawsom\svgs\solid\book-bible.svg" />
+    <Content Include="fontawsom\svgs\solid\book-bookmark.svg" />
+    <Content Include="fontawsom\svgs\solid\book-journal-whills.svg" />
+    <Content Include="fontawsom\svgs\solid\book-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\book-open-reader.svg" />
+    <Content Include="fontawsom\svgs\solid\book-open.svg" />
+    <Content Include="fontawsom\svgs\solid\book-quran.svg" />
+    <Content Include="fontawsom\svgs\solid\book-skull.svg" />
+    <Content Include="fontawsom\svgs\solid\book.svg" />
+    <Content Include="fontawsom\svgs\solid\bookmark.svg" />
+    <Content Include="fontawsom\svgs\solid\border-all.svg" />
+    <Content Include="fontawsom\svgs\solid\border-none.svg" />
+    <Content Include="fontawsom\svgs\solid\border-top-left.svg" />
+    <Content Include="fontawsom\svgs\solid\bore-hole.svg" />
+    <Content Include="fontawsom\svgs\solid\bottle-droplet.svg" />
+    <Content Include="fontawsom\svgs\solid\bottle-water.svg" />
+    <Content Include="fontawsom\svgs\solid\bowl-food.svg" />
+    <Content Include="fontawsom\svgs\solid\bowl-rice.svg" />
+    <Content Include="fontawsom\svgs\solid\bowling-ball.svg" />
+    <Content Include="fontawsom\svgs\solid\box-archive.svg" />
+    <Content Include="fontawsom\svgs\solid\box-open.svg" />
+    <Content Include="fontawsom\svgs\solid\box-tissue.svg" />
+    <Content Include="fontawsom\svgs\solid\box.svg" />
+    <Content Include="fontawsom\svgs\solid\boxes-packing.svg" />
+    <Content Include="fontawsom\svgs\solid\boxes-stacked.svg" />
+    <Content Include="fontawsom\svgs\solid\braille.svg" />
+    <Content Include="fontawsom\svgs\solid\brain.svg" />
+    <Content Include="fontawsom\svgs\solid\brazilian-real-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\bread-slice.svg" />
+    <Content Include="fontawsom\svgs\solid\bridge-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\bridge-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\bridge-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\bridge-lock.svg" />
+    <Content Include="fontawsom\svgs\solid\bridge-water.svg" />
+    <Content Include="fontawsom\svgs\solid\bridge.svg" />
+    <Content Include="fontawsom\svgs\solid\briefcase-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\briefcase.svg" />
+    <Content Include="fontawsom\svgs\solid\broom-ball.svg" />
+    <Content Include="fontawsom\svgs\solid\broom.svg" />
+    <Content Include="fontawsom\svgs\solid\brush.svg" />
+    <Content Include="fontawsom\svgs\solid\bucket.svg" />
+    <Content Include="fontawsom\svgs\solid\bug-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\bug.svg" />
+    <Content Include="fontawsom\svgs\solid\bugs.svg" />
+    <Content Include="fontawsom\svgs\solid\building-circle-arrow-right.svg" />
+    <Content Include="fontawsom\svgs\solid\building-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\building-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\building-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\building-columns.svg" />
+    <Content Include="fontawsom\svgs\solid\building-flag.svg" />
+    <Content Include="fontawsom\svgs\solid\building-lock.svg" />
+    <Content Include="fontawsom\svgs\solid\building-ngo.svg" />
+    <Content Include="fontawsom\svgs\solid\building-shield.svg" />
+    <Content Include="fontawsom\svgs\solid\building-un.svg" />
+    <Content Include="fontawsom\svgs\solid\building-user.svg" />
+    <Content Include="fontawsom\svgs\solid\building-wheat.svg" />
+    <Content Include="fontawsom\svgs\solid\building.svg" />
+    <Content Include="fontawsom\svgs\solid\bullhorn.svg" />
+    <Content Include="fontawsom\svgs\solid\bullseye.svg" />
+    <Content Include="fontawsom\svgs\solid\burger.svg" />
+    <Content Include="fontawsom\svgs\solid\burst.svg" />
+    <Content Include="fontawsom\svgs\solid\bus-simple.svg" />
+    <Content Include="fontawsom\svgs\solid\bus.svg" />
+    <Content Include="fontawsom\svgs\solid\business-time.svg" />
+    <Content Include="fontawsom\svgs\solid\c.svg" />
+    <Content Include="fontawsom\svgs\solid\cake-candles.svg" />
+    <Content Include="fontawsom\svgs\solid\calculator.svg" />
+    <Content Include="fontawsom\svgs\solid\calendar-check.svg" />
+    <Content Include="fontawsom\svgs\solid\calendar-day.svg" />
+    <Content Include="fontawsom\svgs\solid\calendar-days.svg" />
+    <Content Include="fontawsom\svgs\solid\calendar-minus.svg" />
+    <Content Include="fontawsom\svgs\solid\calendar-plus.svg" />
+    <Content Include="fontawsom\svgs\solid\calendar-week.svg" />
+    <Content Include="fontawsom\svgs\solid\calendar-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\calendar.svg" />
+    <Content Include="fontawsom\svgs\solid\camera-retro.svg" />
+    <Content Include="fontawsom\svgs\solid\camera-rotate.svg" />
+    <Content Include="fontawsom\svgs\solid\camera.svg" />
+    <Content Include="fontawsom\svgs\solid\campground.svg" />
+    <Content Include="fontawsom\svgs\solid\candy-cane.svg" />
+    <Content Include="fontawsom\svgs\solid\cannabis.svg" />
+    <Content Include="fontawsom\svgs\solid\capsules.svg" />
+    <Content Include="fontawsom\svgs\solid\car-battery.svg" />
+    <Content Include="fontawsom\svgs\solid\car-burst.svg" />
+    <Content Include="fontawsom\svgs\solid\car-on.svg" />
+    <Content Include="fontawsom\svgs\solid\car-rear.svg" />
+    <Content Include="fontawsom\svgs\solid\car-side.svg" />
+    <Content Include="fontawsom\svgs\solid\car-tunnel.svg" />
+    <Content Include="fontawsom\svgs\solid\car.svg" />
+    <Content Include="fontawsom\svgs\solid\caravan.svg" />
+    <Content Include="fontawsom\svgs\solid\caret-down.svg" />
+    <Content Include="fontawsom\svgs\solid\caret-left.svg" />
+    <Content Include="fontawsom\svgs\solid\caret-right.svg" />
+    <Content Include="fontawsom\svgs\solid\caret-up.svg" />
+    <Content Include="fontawsom\svgs\solid\carrot.svg" />
+    <Content Include="fontawsom\svgs\solid\cart-arrow-down.svg" />
+    <Content Include="fontawsom\svgs\solid\cart-flatbed-suitcase.svg" />
+    <Content Include="fontawsom\svgs\solid\cart-flatbed.svg" />
+    <Content Include="fontawsom\svgs\solid\cart-plus.svg" />
+    <Content Include="fontawsom\svgs\solid\cart-shopping.svg" />
+    <Content Include="fontawsom\svgs\solid\cash-register.svg" />
+    <Content Include="fontawsom\svgs\solid\cat.svg" />
+    <Content Include="fontawsom\svgs\solid\cedi-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\cent-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\certificate.svg" />
+    <Content Include="fontawsom\svgs\solid\chair.svg" />
+    <Content Include="fontawsom\svgs\solid\chalkboard-user.svg" />
+    <Content Include="fontawsom\svgs\solid\chalkboard.svg" />
+    <Content Include="fontawsom\svgs\solid\champagne-glasses.svg" />
+    <Content Include="fontawsom\svgs\solid\charging-station.svg" />
+    <Content Include="fontawsom\svgs\solid\chart-area.svg" />
+    <Content Include="fontawsom\svgs\solid\chart-bar.svg" />
+    <Content Include="fontawsom\svgs\solid\chart-column.svg" />
+    <Content Include="fontawsom\svgs\solid\chart-gantt.svg" />
+    <Content Include="fontawsom\svgs\solid\chart-line.svg" />
+    <Content Include="fontawsom\svgs\solid\chart-pie.svg" />
+    <Content Include="fontawsom\svgs\solid\chart-simple.svg" />
+    <Content Include="fontawsom\svgs\solid\check-double.svg" />
+    <Content Include="fontawsom\svgs\solid\check-to-slot.svg" />
+    <Content Include="fontawsom\svgs\solid\check.svg" />
+    <Content Include="fontawsom\svgs\solid\cheese.svg" />
+    <Content Include="fontawsom\svgs\solid\chess-bishop.svg" />
+    <Content Include="fontawsom\svgs\solid\chess-board.svg" />
+    <Content Include="fontawsom\svgs\solid\chess-king.svg" />
+    <Content Include="fontawsom\svgs\solid\chess-knight.svg" />
+    <Content Include="fontawsom\svgs\solid\chess-pawn.svg" />
+    <Content Include="fontawsom\svgs\solid\chess-queen.svg" />
+    <Content Include="fontawsom\svgs\solid\chess-rook.svg" />
+    <Content Include="fontawsom\svgs\solid\chess.svg" />
+    <Content Include="fontawsom\svgs\solid\chevron-down.svg" />
+    <Content Include="fontawsom\svgs\solid\chevron-left.svg" />
+    <Content Include="fontawsom\svgs\solid\chevron-right.svg" />
+    <Content Include="fontawsom\svgs\solid\chevron-up.svg" />
+    <Content Include="fontawsom\svgs\solid\child-dress.svg" />
+    <Content Include="fontawsom\svgs\solid\child-reaching.svg" />
+    <Content Include="fontawsom\svgs\solid\child-rifle.svg" />
+    <Content Include="fontawsom\svgs\solid\child.svg" />
+    <Content Include="fontawsom\svgs\solid\children.svg" />
+    <Content Include="fontawsom\svgs\solid\church.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-arrow-down.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-arrow-left.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-arrow-right.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-arrow-up.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-chevron-down.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-chevron-left.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-chevron-right.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-chevron-up.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-dollar-to-slot.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-dot.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-down.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-h.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-half-stroke.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-info.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-left.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-minus.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-nodes.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-notch.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-pause.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-play.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-plus.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-question.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-radiation.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-right.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-stop.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-up.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-user.svg" />
+    <Content Include="fontawsom\svgs\solid\circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\circle.svg" />
+    <Content Include="fontawsom\svgs\solid\city.svg" />
+    <Content Include="fontawsom\svgs\solid\clapperboard.svg" />
+    <Content Include="fontawsom\svgs\solid\clipboard-check.svg" />
+    <Content Include="fontawsom\svgs\solid\clipboard-list.svg" />
+    <Content Include="fontawsom\svgs\solid\clipboard-question.svg" />
+    <Content Include="fontawsom\svgs\solid\clipboard-user.svg" />
+    <Content Include="fontawsom\svgs\solid\clipboard.svg" />
+    <Content Include="fontawsom\svgs\solid\clock-rotate-left.svg" />
+    <Content Include="fontawsom\svgs\solid\clock.svg" />
+    <Content Include="fontawsom\svgs\solid\clone.svg" />
+    <Content Include="fontawsom\svgs\solid\closed-captioning.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud-arrow-down.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud-arrow-up.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud-bolt.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud-meatball.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud-moon-rain.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud-moon.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud-rain.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud-showers-heavy.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud-showers-water.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud-sun-rain.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud-sun.svg" />
+    <Content Include="fontawsom\svgs\solid\cloud.svg" />
+    <Content Include="fontawsom\svgs\solid\clover.svg" />
+    <Content Include="fontawsom\svgs\solid\code-branch.svg" />
+    <Content Include="fontawsom\svgs\solid\code-commit.svg" />
+    <Content Include="fontawsom\svgs\solid\code-compare.svg" />
+    <Content Include="fontawsom\svgs\solid\code-fork.svg" />
+    <Content Include="fontawsom\svgs\solid\code-merge.svg" />
+    <Content Include="fontawsom\svgs\solid\code-pull-request.svg" />
+    <Content Include="fontawsom\svgs\solid\code.svg" />
+    <Content Include="fontawsom\svgs\solid\coins.svg" />
+    <Content Include="fontawsom\svgs\solid\colon-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\comment-dollar.svg" />
+    <Content Include="fontawsom\svgs\solid\comment-dots.svg" />
+    <Content Include="fontawsom\svgs\solid\comment-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\comment-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\comment-sms.svg" />
+    <Content Include="fontawsom\svgs\solid\comment.svg" />
+    <Content Include="fontawsom\svgs\solid\comments-dollar.svg" />
+    <Content Include="fontawsom\svgs\solid\comments.svg" />
+    <Content Include="fontawsom\svgs\solid\compact-disc.svg" />
+    <Content Include="fontawsom\svgs\solid\compass-drafting.svg" />
+    <Content Include="fontawsom\svgs\solid\compass.svg" />
+    <Content Include="fontawsom\svgs\solid\compress.svg" />
+    <Content Include="fontawsom\svgs\solid\computer-mouse.svg" />
+    <Content Include="fontawsom\svgs\solid\computer.svg" />
+    <Content Include="fontawsom\svgs\solid\cookie-bite.svg" />
+    <Content Include="fontawsom\svgs\solid\cookie.svg" />
+    <Content Include="fontawsom\svgs\solid\copy.svg" />
+    <Content Include="fontawsom\svgs\solid\copyright.svg" />
+    <Content Include="fontawsom\svgs\solid\couch.svg" />
+    <Content Include="fontawsom\svgs\solid\cow.svg" />
+    <Content Include="fontawsom\svgs\solid\credit-card.svg" />
+    <Content Include="fontawsom\svgs\solid\crop-simple.svg" />
+    <Content Include="fontawsom\svgs\solid\crop.svg" />
+    <Content Include="fontawsom\svgs\solid\cross.svg" />
+    <Content Include="fontawsom\svgs\solid\crosshairs.svg" />
+    <Content Include="fontawsom\svgs\solid\crow.svg" />
+    <Content Include="fontawsom\svgs\solid\crown.svg" />
+    <Content Include="fontawsom\svgs\solid\crutch.svg" />
+    <Content Include="fontawsom\svgs\solid\cruzeiro-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\cube.svg" />
+    <Content Include="fontawsom\svgs\solid\cubes-stacked.svg" />
+    <Content Include="fontawsom\svgs\solid\cubes.svg" />
+    <Content Include="fontawsom\svgs\solid\d.svg" />
+    <Content Include="fontawsom\svgs\solid\database.svg" />
+    <Content Include="fontawsom\svgs\solid\delete-left.svg" />
+    <Content Include="fontawsom\svgs\solid\democrat.svg" />
+    <Content Include="fontawsom\svgs\solid\desktop.svg" />
+    <Content Include="fontawsom\svgs\solid\dharmachakra.svg" />
+    <Content Include="fontawsom\svgs\solid\diagram-next.svg" />
+    <Content Include="fontawsom\svgs\solid\diagram-predecessor.svg" />
+    <Content Include="fontawsom\svgs\solid\diagram-project.svg" />
+    <Content Include="fontawsom\svgs\solid\diagram-successor.svg" />
+    <Content Include="fontawsom\svgs\solid\diamond-turn-right.svg" />
+    <Content Include="fontawsom\svgs\solid\diamond.svg" />
+    <Content Include="fontawsom\svgs\solid\dice-d20.svg" />
+    <Content Include="fontawsom\svgs\solid\dice-d6.svg" />
+    <Content Include="fontawsom\svgs\solid\dice-five.svg" />
+    <Content Include="fontawsom\svgs\solid\dice-four.svg" />
+    <Content Include="fontawsom\svgs\solid\dice-one.svg" />
+    <Content Include="fontawsom\svgs\solid\dice-six.svg" />
+    <Content Include="fontawsom\svgs\solid\dice-three.svg" />
+    <Content Include="fontawsom\svgs\solid\dice-two.svg" />
+    <Content Include="fontawsom\svgs\solid\dice.svg" />
+    <Content Include="fontawsom\svgs\solid\disease.svg" />
+    <Content Include="fontawsom\svgs\solid\display.svg" />
+    <Content Include="fontawsom\svgs\solid\divide.svg" />
+    <Content Include="fontawsom\svgs\solid\dna.svg" />
+    <Content Include="fontawsom\svgs\solid\dog.svg" />
+    <Content Include="fontawsom\svgs\solid\dollar-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\dolly.svg" />
+    <Content Include="fontawsom\svgs\solid\dong-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\door-closed.svg" />
+    <Content Include="fontawsom\svgs\solid\door-open.svg" />
+    <Content Include="fontawsom\svgs\solid\dove.svg" />
+    <Content Include="fontawsom\svgs\solid\down-left-and-up-right-to-center.svg" />
+    <Content Include="fontawsom\svgs\solid\down-long.svg" />
+    <Content Include="fontawsom\svgs\solid\download.svg" />
+    <Content Include="fontawsom\svgs\solid\dragon.svg" />
+    <Content Include="fontawsom\svgs\solid\draw-polygon.svg" />
+    <Content Include="fontawsom\svgs\solid\droplet-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\droplet.svg" />
+    <Content Include="fontawsom\svgs\solid\drum-steelpan.svg" />
+    <Content Include="fontawsom\svgs\solid\drum.svg" />
+    <Content Include="fontawsom\svgs\solid\drumstick-bite.svg" />
+    <Content Include="fontawsom\svgs\solid\dumbbell.svg" />
+    <Content Include="fontawsom\svgs\solid\dumpster-fire.svg" />
+    <Content Include="fontawsom\svgs\solid\dumpster.svg" />
+    <Content Include="fontawsom\svgs\solid\dungeon.svg" />
+    <Content Include="fontawsom\svgs\solid\e.svg" />
+    <Content Include="fontawsom\svgs\solid\ear-deaf.svg" />
+    <Content Include="fontawsom\svgs\solid\ear-listen.svg" />
+    <Content Include="fontawsom\svgs\solid\earth-africa.svg" />
+    <Content Include="fontawsom\svgs\solid\earth-americas.svg" />
+    <Content Include="fontawsom\svgs\solid\earth-asia.svg" />
+    <Content Include="fontawsom\svgs\solid\earth-europe.svg" />
+    <Content Include="fontawsom\svgs\solid\earth-oceania.svg" />
+    <Content Include="fontawsom\svgs\solid\egg.svg" />
+    <Content Include="fontawsom\svgs\solid\eject.svg" />
+    <Content Include="fontawsom\svgs\solid\elevator.svg" />
+    <Content Include="fontawsom\svgs\solid\ellipsis-vertical.svg" />
+    <Content Include="fontawsom\svgs\solid\ellipsis.svg" />
+    <Content Include="fontawsom\svgs\solid\envelope-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\envelope-open-text.svg" />
+    <Content Include="fontawsom\svgs\solid\envelope-open.svg" />
+    <Content Include="fontawsom\svgs\solid\envelope.svg" />
+    <Content Include="fontawsom\svgs\solid\envelopes-bulk.svg" />
+    <Content Include="fontawsom\svgs\solid\equals.svg" />
+    <Content Include="fontawsom\svgs\solid\eraser.svg" />
+    <Content Include="fontawsom\svgs\solid\ethernet.svg" />
+    <Content Include="fontawsom\svgs\solid\euro-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\expand.svg" />
+    <Content Include="fontawsom\svgs\solid\explosion.svg" />
+    <Content Include="fontawsom\svgs\solid\eye-dropper.svg" />
+    <Content Include="fontawsom\svgs\solid\eye-low-vision.svg" />
+    <Content Include="fontawsom\svgs\solid\eye-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\eye.svg" />
+    <Content Include="fontawsom\svgs\solid\f.svg" />
+    <Content Include="fontawsom\svgs\solid\face-angry.svg" />
+    <Content Include="fontawsom\svgs\solid\face-dizzy.svg" />
+    <Content Include="fontawsom\svgs\solid\face-flushed.svg" />
+    <Content Include="fontawsom\svgs\solid\face-frown-open.svg" />
+    <Content Include="fontawsom\svgs\solid\face-frown.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grimace.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-beam-sweat.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-beam.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-hearts.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-squint-tears.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-squint.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-stars.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-tears.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-tongue-squint.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-tongue-wink.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-tongue.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-wide.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin-wink.svg" />
+    <Content Include="fontawsom\svgs\solid\face-grin.svg" />
+    <Content Include="fontawsom\svgs\solid\face-kiss-beam.svg" />
+    <Content Include="fontawsom\svgs\solid\face-kiss-wink-heart.svg" />
+    <Content Include="fontawsom\svgs\solid\face-kiss.svg" />
+    <Content Include="fontawsom\svgs\solid\face-laugh-beam.svg" />
+    <Content Include="fontawsom\svgs\solid\face-laugh-squint.svg" />
+    <Content Include="fontawsom\svgs\solid\face-laugh-wink.svg" />
+    <Content Include="fontawsom\svgs\solid\face-laugh.svg" />
+    <Content Include="fontawsom\svgs\solid\face-meh-blank.svg" />
+    <Content Include="fontawsom\svgs\solid\face-meh.svg" />
+    <Content Include="fontawsom\svgs\solid\face-rolling-eyes.svg" />
+    <Content Include="fontawsom\svgs\solid\face-sad-cry.svg" />
+    <Content Include="fontawsom\svgs\solid\face-sad-tear.svg" />
+    <Content Include="fontawsom\svgs\solid\face-smile-beam.svg" />
+    <Content Include="fontawsom\svgs\solid\face-smile-wink.svg" />
+    <Content Include="fontawsom\svgs\solid\face-smile.svg" />
+    <Content Include="fontawsom\svgs\solid\face-surprise.svg" />
+    <Content Include="fontawsom\svgs\solid\face-tired.svg" />
+    <Content Include="fontawsom\svgs\solid\fan.svg" />
+    <Content Include="fontawsom\svgs\solid\faucet-drip.svg" />
+    <Content Include="fontawsom\svgs\solid\faucet.svg" />
+    <Content Include="fontawsom\svgs\solid\fax.svg" />
+    <Content Include="fontawsom\svgs\solid\feather-pointed.svg" />
+    <Content Include="fontawsom\svgs\solid\feather.svg" />
+    <Content Include="fontawsom\svgs\solid\ferry.svg" />
+    <Content Include="fontawsom\svgs\solid\file-arrow-down.svg" />
+    <Content Include="fontawsom\svgs\solid\file-arrow-up.svg" />
+    <Content Include="fontawsom\svgs\solid\file-audio.svg" />
+    <Content Include="fontawsom\svgs\solid\file-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\file-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\file-circle-minus.svg" />
+    <Content Include="fontawsom\svgs\solid\file-circle-plus.svg" />
+    <Content Include="fontawsom\svgs\solid\file-circle-question.svg" />
+    <Content Include="fontawsom\svgs\solid\file-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\file-code.svg" />
+    <Content Include="fontawsom\svgs\solid\file-contract.svg" />
+    <Content Include="fontawsom\svgs\solid\file-csv.svg" />
+    <Content Include="fontawsom\svgs\solid\file-excel.svg" />
+    <Content Include="fontawsom\svgs\solid\file-export.svg" />
+    <Content Include="fontawsom\svgs\solid\file-image.svg" />
+    <Content Include="fontawsom\svgs\solid\file-import.svg" />
+    <Content Include="fontawsom\svgs\solid\file-invoice-dollar.svg" />
+    <Content Include="fontawsom\svgs\solid\file-invoice.svg" />
+    <Content Include="fontawsom\svgs\solid\file-lines.svg" />
+    <Content Include="fontawsom\svgs\solid\file-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\file-pdf.svg" />
+    <Content Include="fontawsom\svgs\solid\file-pen.svg" />
+    <Content Include="fontawsom\svgs\solid\file-powerpoint.svg" />
+    <Content Include="fontawsom\svgs\solid\file-prescription.svg" />
+    <Content Include="fontawsom\svgs\solid\file-shield.svg" />
+    <Content Include="fontawsom\svgs\solid\file-signature.svg" />
+    <Content Include="fontawsom\svgs\solid\file-video.svg" />
+    <Content Include="fontawsom\svgs\solid\file-waveform.svg" />
+    <Content Include="fontawsom\svgs\solid\file-word.svg" />
+    <Content Include="fontawsom\svgs\solid\file-zipper.svg" />
+    <Content Include="fontawsom\svgs\solid\file.svg" />
+    <Content Include="fontawsom\svgs\solid\fill-drip.svg" />
+    <Content Include="fontawsom\svgs\solid\fill.svg" />
+    <Content Include="fontawsom\svgs\solid\film.svg" />
+    <Content Include="fontawsom\svgs\solid\filter-circle-dollar.svg" />
+    <Content Include="fontawsom\svgs\solid\filter-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\filter.svg" />
+    <Content Include="fontawsom\svgs\solid\fingerprint.svg" />
+    <Content Include="fontawsom\svgs\solid\fire-burner.svg" />
+    <Content Include="fontawsom\svgs\solid\fire-extinguisher.svg" />
+    <Content Include="fontawsom\svgs\solid\fire-flame-curved.svg" />
+    <Content Include="fontawsom\svgs\solid\fire-flame-simple.svg" />
+    <Content Include="fontawsom\svgs\solid\fire.svg" />
+    <Content Include="fontawsom\svgs\solid\fish-fins.svg" />
+    <Content Include="fontawsom\svgs\solid\fish.svg" />
+    <Content Include="fontawsom\svgs\solid\flag-checkered.svg" />
+    <Content Include="fontawsom\svgs\solid\flag-usa.svg" />
+    <Content Include="fontawsom\svgs\solid\flag.svg" />
+    <Content Include="fontawsom\svgs\solid\flask-vial.svg" />
+    <Content Include="fontawsom\svgs\solid\flask.svg" />
+    <Content Include="fontawsom\svgs\solid\floppy-disk.svg" />
+    <Content Include="fontawsom\svgs\solid\florin-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\folder-closed.svg" />
+    <Content Include="fontawsom\svgs\solid\folder-minus.svg" />
+    <Content Include="fontawsom\svgs\solid\folder-open.svg" />
+    <Content Include="fontawsom\svgs\solid\folder-plus.svg" />
+    <Content Include="fontawsom\svgs\solid\folder-tree.svg" />
+    <Content Include="fontawsom\svgs\solid\folder.svg" />
+    <Content Include="fontawsom\svgs\solid\font-awesome.svg" />
+    <Content Include="fontawsom\svgs\solid\font.svg" />
+    <Content Include="fontawsom\svgs\solid\football.svg" />
+    <Content Include="fontawsom\svgs\solid\forward-fast.svg" />
+    <Content Include="fontawsom\svgs\solid\forward-step.svg" />
+    <Content Include="fontawsom\svgs\solid\forward.svg" />
+    <Content Include="fontawsom\svgs\solid\franc-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\frog.svg" />
+    <Content Include="fontawsom\svgs\solid\futbol.svg" />
+    <Content Include="fontawsom\svgs\solid\g.svg" />
+    <Content Include="fontawsom\svgs\solid\gamepad.svg" />
+    <Content Include="fontawsom\svgs\solid\gas-pump.svg" />
+    <Content Include="fontawsom\svgs\solid\gauge-high.svg" />
+    <Content Include="fontawsom\svgs\solid\gauge-simple-high.svg" />
+    <Content Include="fontawsom\svgs\solid\gauge-simple.svg" />
+    <Content Include="fontawsom\svgs\solid\gauge.svg" />
+    <Content Include="fontawsom\svgs\solid\gavel.svg" />
+    <Content Include="fontawsom\svgs\solid\gear.svg" />
+    <Content Include="fontawsom\svgs\solid\gears.svg" />
+    <Content Include="fontawsom\svgs\solid\gem.svg" />
+    <Content Include="fontawsom\svgs\solid\genderless.svg" />
+    <Content Include="fontawsom\svgs\solid\ghost.svg" />
+    <Content Include="fontawsom\svgs\solid\gift.svg" />
+    <Content Include="fontawsom\svgs\solid\gifts.svg" />
+    <Content Include="fontawsom\svgs\solid\glass-water-droplet.svg" />
+    <Content Include="fontawsom\svgs\solid\glass-water.svg" />
+    <Content Include="fontawsom\svgs\solid\glasses.svg" />
+    <Content Include="fontawsom\svgs\solid\globe.svg" />
+    <Content Include="fontawsom\svgs\solid\golf-ball-tee.svg" />
+    <Content Include="fontawsom\svgs\solid\gopuram.svg" />
+    <Content Include="fontawsom\svgs\solid\graduation-cap.svg" />
+    <Content Include="fontawsom\svgs\solid\greater-than-equal.svg" />
+    <Content Include="fontawsom\svgs\solid\greater-than.svg" />
+    <Content Include="fontawsom\svgs\solid\grip-lines-vertical.svg" />
+    <Content Include="fontawsom\svgs\solid\grip-lines.svg" />
+    <Content Include="fontawsom\svgs\solid\grip-vertical.svg" />
+    <Content Include="fontawsom\svgs\solid\grip.svg" />
+    <Content Include="fontawsom\svgs\solid\group-arrows-rotate.svg" />
+    <Content Include="fontawsom\svgs\solid\guarani-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\guitar.svg" />
+    <Content Include="fontawsom\svgs\solid\gun.svg" />
+    <Content Include="fontawsom\svgs\solid\h.svg" />
+    <Content Include="fontawsom\svgs\solid\hammer.svg" />
+    <Content Include="fontawsom\svgs\solid\hamsa.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-back-fist.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-dots.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-fist.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-holding-dollar.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-holding-droplet.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-holding-hand.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-holding-heart.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-holding-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-holding.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-lizard.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-middle-finger.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-peace.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-point-down.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-point-left.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-point-right.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-point-up.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-pointer.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-scissors.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-sparkles.svg" />
+    <Content Include="fontawsom\svgs\solid\hand-spock.svg" />
+    <Content Include="fontawsom\svgs\solid\hand.svg" />
+    <Content Include="fontawsom\svgs\solid\handcuffs.svg" />
+    <Content Include="fontawsom\svgs\solid\hands-asl-interpreting.svg" />
+    <Content Include="fontawsom\svgs\solid\hands-bound.svg" />
+    <Content Include="fontawsom\svgs\solid\hands-bubbles.svg" />
+    <Content Include="fontawsom\svgs\solid\hands-clapping.svg" />
+    <Content Include="fontawsom\svgs\solid\hands-holding-child.svg" />
+    <Content Include="fontawsom\svgs\solid\hands-holding-circle.svg" />
+    <Content Include="fontawsom\svgs\solid\hands-holding.svg" />
+    <Content Include="fontawsom\svgs\solid\hands-praying.svg" />
+    <Content Include="fontawsom\svgs\solid\hands.svg" />
+    <Content Include="fontawsom\svgs\solid\handshake-angle.svg" />
+    <Content Include="fontawsom\svgs\solid\handshake-simple-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\handshake-simple.svg" />
+    <Content Include="fontawsom\svgs\solid\handshake-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\handshake.svg" />
+    <Content Include="fontawsom\svgs\solid\hanukiah.svg" />
+    <Content Include="fontawsom\svgs\solid\hard-drive.svg" />
+    <Content Include="fontawsom\svgs\solid\hashtag.svg" />
+    <Content Include="fontawsom\svgs\solid\hat-cowboy-side.svg" />
+    <Content Include="fontawsom\svgs\solid\hat-cowboy.svg" />
+    <Content Include="fontawsom\svgs\solid\hat-wizard.svg" />
+    <Content Include="fontawsom\svgs\solid\head-side-cough-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\head-side-cough.svg" />
+    <Content Include="fontawsom\svgs\solid\head-side-mask.svg" />
+    <Content Include="fontawsom\svgs\solid\head-side-virus.svg" />
+    <Content Include="fontawsom\svgs\solid\heading.svg" />
+    <Content Include="fontawsom\svgs\solid\headphones-simple.svg" />
+    <Content Include="fontawsom\svgs\solid\headphones.svg" />
+    <Content Include="fontawsom\svgs\solid\headset.svg" />
+    <Content Include="fontawsom\svgs\solid\heart-circle-bolt.svg" />
+    <Content Include="fontawsom\svgs\solid\heart-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\heart-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\heart-circle-minus.svg" />
+    <Content Include="fontawsom\svgs\solid\heart-circle-plus.svg" />
+    <Content Include="fontawsom\svgs\solid\heart-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\heart-crack.svg" />
+    <Content Include="fontawsom\svgs\solid\heart-pulse.svg" />
+    <Content Include="fontawsom\svgs\solid\heart.svg" />
+    <Content Include="fontawsom\svgs\solid\helicopter-symbol.svg" />
+    <Content Include="fontawsom\svgs\solid\helicopter.svg" />
+    <Content Include="fontawsom\svgs\solid\helmet-safety.svg" />
+    <Content Include="fontawsom\svgs\solid\helmet-un.svg" />
+    <Content Include="fontawsom\svgs\solid\highlighter.svg" />
+    <Content Include="fontawsom\svgs\solid\hill-avalanche.svg" />
+    <Content Include="fontawsom\svgs\solid\hill-rockslide.svg" />
+    <Content Include="fontawsom\svgs\solid\hippo.svg" />
+    <Content Include="fontawsom\svgs\solid\hockey-puck.svg" />
+    <Content Include="fontawsom\svgs\solid\holly-berry.svg" />
+    <Content Include="fontawsom\svgs\solid\horse-head.svg" />
+    <Content Include="fontawsom\svgs\solid\horse.svg" />
+    <Content Include="fontawsom\svgs\solid\hospital-user.svg" />
+    <Content Include="fontawsom\svgs\solid\hospital.svg" />
+    <Content Include="fontawsom\svgs\solid\hot-tub-person.svg" />
+    <Content Include="fontawsom\svgs\solid\hotdog.svg" />
+    <Content Include="fontawsom\svgs\solid\hotel.svg" />
+    <Content Include="fontawsom\svgs\solid\hourglass-empty.svg" />
+    <Content Include="fontawsom\svgs\solid\hourglass-end.svg" />
+    <Content Include="fontawsom\svgs\solid\hourglass-start.svg" />
+    <Content Include="fontawsom\svgs\solid\hourglass.svg" />
+    <Content Include="fontawsom\svgs\solid\house-chimney-crack.svg" />
+    <Content Include="fontawsom\svgs\solid\house-chimney-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\house-chimney-user.svg" />
+    <Content Include="fontawsom\svgs\solid\house-chimney-window.svg" />
+    <Content Include="fontawsom\svgs\solid\house-chimney.svg" />
+    <Content Include="fontawsom\svgs\solid\house-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\house-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\house-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\house-crack.svg" />
+    <Content Include="fontawsom\svgs\solid\house-fire.svg" />
+    <Content Include="fontawsom\svgs\solid\house-flag.svg" />
+    <Content Include="fontawsom\svgs\solid\house-flood-water-circle-arrow-right.svg" />
+    <Content Include="fontawsom\svgs\solid\house-flood-water.svg" />
+    <Content Include="fontawsom\svgs\solid\house-laptop.svg" />
+    <Content Include="fontawsom\svgs\solid\house-lock.svg" />
+    <Content Include="fontawsom\svgs\solid\house-medical-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\house-medical-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\house-medical-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\house-medical-flag.svg" />
+    <Content Include="fontawsom\svgs\solid\house-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\house-signal.svg" />
+    <Content Include="fontawsom\svgs\solid\house-tsunami.svg" />
+    <Content Include="fontawsom\svgs\solid\house-user.svg" />
+    <Content Include="fontawsom\svgs\solid\house.svg" />
+    <Content Include="fontawsom\svgs\solid\hryvnia-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\hurricane.svg" />
+    <Content Include="fontawsom\svgs\solid\i-cursor.svg" />
+    <Content Include="fontawsom\svgs\solid\i.svg" />
+    <Content Include="fontawsom\svgs\solid\ice-cream.svg" />
+    <Content Include="fontawsom\svgs\solid\icicles.svg" />
+    <Content Include="fontawsom\svgs\solid\icons.svg" />
+    <Content Include="fontawsom\svgs\solid\id-badge.svg" />
+    <Content Include="fontawsom\svgs\solid\id-card-clip.svg" />
+    <Content Include="fontawsom\svgs\solid\id-card.svg" />
+    <Content Include="fontawsom\svgs\solid\igloo.svg" />
+    <Content Include="fontawsom\svgs\solid\image-portrait.svg" />
+    <Content Include="fontawsom\svgs\solid\image.svg" />
+    <Content Include="fontawsom\svgs\solid\images.svg" />
+    <Content Include="fontawsom\svgs\solid\inbox.svg" />
+    <Content Include="fontawsom\svgs\solid\indent.svg" />
+    <Content Include="fontawsom\svgs\solid\indian-rupee-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\industry.svg" />
+    <Content Include="fontawsom\svgs\solid\infinity.svg" />
+    <Content Include="fontawsom\svgs\solid\info.svg" />
+    <Content Include="fontawsom\svgs\solid\italic.svg" />
+    <Content Include="fontawsom\svgs\solid\j.svg" />
+    <Content Include="fontawsom\svgs\solid\jar-wheat.svg" />
+    <Content Include="fontawsom\svgs\solid\jar.svg" />
+    <Content Include="fontawsom\svgs\solid\jedi.svg" />
+    <Content Include="fontawsom\svgs\solid\jet-fighter-up.svg" />
+    <Content Include="fontawsom\svgs\solid\jet-fighter.svg" />
+    <Content Include="fontawsom\svgs\solid\joint.svg" />
+    <Content Include="fontawsom\svgs\solid\jug-detergent.svg" />
+    <Content Include="fontawsom\svgs\solid\k.svg" />
+    <Content Include="fontawsom\svgs\solid\kaaba.svg" />
+    <Content Include="fontawsom\svgs\solid\key.svg" />
+    <Content Include="fontawsom\svgs\solid\keyboard.svg" />
+    <Content Include="fontawsom\svgs\solid\khanda.svg" />
+    <Content Include="fontawsom\svgs\solid\kip-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\kit-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\kitchen-set.svg" />
+    <Content Include="fontawsom\svgs\solid\kiwi-bird.svg" />
+    <Content Include="fontawsom\svgs\solid\l.svg" />
+    <Content Include="fontawsom\svgs\solid\land-mine-on.svg" />
+    <Content Include="fontawsom\svgs\solid\landmark-dome.svg" />
+    <Content Include="fontawsom\svgs\solid\landmark-flag.svg" />
+    <Content Include="fontawsom\svgs\solid\landmark.svg" />
+    <Content Include="fontawsom\svgs\solid\language.svg" />
+    <Content Include="fontawsom\svgs\solid\laptop-code.svg" />
+    <Content Include="fontawsom\svgs\solid\laptop-file.svg" />
+    <Content Include="fontawsom\svgs\solid\laptop-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\laptop.svg" />
+    <Content Include="fontawsom\svgs\solid\lari-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\layer-group.svg" />
+    <Content Include="fontawsom\svgs\solid\leaf.svg" />
+    <Content Include="fontawsom\svgs\solid\left-long.svg" />
+    <Content Include="fontawsom\svgs\solid\left-right.svg" />
+    <Content Include="fontawsom\svgs\solid\lemon.svg" />
+    <Content Include="fontawsom\svgs\solid\less-than-equal.svg" />
+    <Content Include="fontawsom\svgs\solid\less-than.svg" />
+    <Content Include="fontawsom\svgs\solid\life-ring.svg" />
+    <Content Include="fontawsom\svgs\solid\lightbulb.svg" />
+    <Content Include="fontawsom\svgs\solid\lines-leaning.svg" />
+    <Content Include="fontawsom\svgs\solid\link-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\link.svg" />
+    <Content Include="fontawsom\svgs\solid\lira-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\list-check.svg" />
+    <Content Include="fontawsom\svgs\solid\list-ol.svg" />
+    <Content Include="fontawsom\svgs\solid\list-ul.svg" />
+    <Content Include="fontawsom\svgs\solid\list.svg" />
+    <Content Include="fontawsom\svgs\solid\litecoin-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\location-arrow.svg" />
+    <Content Include="fontawsom\svgs\solid\location-crosshairs.svg" />
+    <Content Include="fontawsom\svgs\solid\location-dot.svg" />
+    <Content Include="fontawsom\svgs\solid\location-pin-lock.svg" />
+    <Content Include="fontawsom\svgs\solid\location-pin.svg" />
+    <Content Include="fontawsom\svgs\solid\lock-open.svg" />
+    <Content Include="fontawsom\svgs\solid\lock.svg" />
+    <Content Include="fontawsom\svgs\solid\locust.svg" />
+    <Content Include="fontawsom\svgs\solid\lungs-virus.svg" />
+    <Content Include="fontawsom\svgs\solid\lungs.svg" />
+    <Content Include="fontawsom\svgs\solid\m.svg" />
+    <Content Include="fontawsom\svgs\solid\magnet.svg" />
+    <Content Include="fontawsom\svgs\solid\magnifying-glass-arrow-right.svg" />
+    <Content Include="fontawsom\svgs\solid\magnifying-glass-chart.svg" />
+    <Content Include="fontawsom\svgs\solid\magnifying-glass-dollar.svg" />
+    <Content Include="fontawsom\svgs\solid\magnifying-glass-location.svg" />
+    <Content Include="fontawsom\svgs\solid\magnifying-glass-minus.svg" />
+    <Content Include="fontawsom\svgs\solid\magnifying-glass-plus.svg" />
+    <Content Include="fontawsom\svgs\solid\magnifying-glass.svg" />
+    <Content Include="fontawsom\svgs\solid\manat-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\map-location-dot.svg" />
+    <Content Include="fontawsom\svgs\solid\map-location.svg" />
+    <Content Include="fontawsom\svgs\solid\map-pin.svg" />
+    <Content Include="fontawsom\svgs\solid\map.svg" />
+    <Content Include="fontawsom\svgs\solid\marker.svg" />
+    <Content Include="fontawsom\svgs\solid\mars-and-venus-burst.svg" />
+    <Content Include="fontawsom\svgs\solid\mars-and-venus.svg" />
+    <Content Include="fontawsom\svgs\solid\mars-double.svg" />
+    <Content Include="fontawsom\svgs\solid\mars-stroke-right.svg" />
+    <Content Include="fontawsom\svgs\solid\mars-stroke-up.svg" />
+    <Content Include="fontawsom\svgs\solid\mars-stroke.svg" />
+    <Content Include="fontawsom\svgs\solid\mars.svg" />
+    <Content Include="fontawsom\svgs\solid\martini-glass-citrus.svg" />
+    <Content Include="fontawsom\svgs\solid\martini-glass-empty.svg" />
+    <Content Include="fontawsom\svgs\solid\martini-glass.svg" />
+    <Content Include="fontawsom\svgs\solid\mask-face.svg" />
+    <Content Include="fontawsom\svgs\solid\mask-ventilator.svg" />
+    <Content Include="fontawsom\svgs\solid\mask.svg" />
+    <Content Include="fontawsom\svgs\solid\masks-theater.svg" />
+    <Content Include="fontawsom\svgs\solid\mattress-pillow.svg" />
+    <Content Include="fontawsom\svgs\solid\maximize.svg" />
+    <Content Include="fontawsom\svgs\solid\medal.svg" />
+    <Content Include="fontawsom\svgs\solid\memory.svg" />
+    <Content Include="fontawsom\svgs\solid\menorah.svg" />
+    <Content Include="fontawsom\svgs\solid\mercury.svg" />
+    <Content Include="fontawsom\svgs\solid\message.svg" />
+    <Content Include="fontawsom\svgs\solid\meteor.svg" />
+    <Content Include="fontawsom\svgs\solid\microchip.svg" />
+    <Content Include="fontawsom\svgs\solid\microphone-lines-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\microphone-lines.svg" />
+    <Content Include="fontawsom\svgs\solid\microphone-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\microphone.svg" />
+    <Content Include="fontawsom\svgs\solid\microscope.svg" />
+    <Content Include="fontawsom\svgs\solid\mill-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\minimize.svg" />
+    <Content Include="fontawsom\svgs\solid\minus.svg" />
+    <Content Include="fontawsom\svgs\solid\mitten.svg" />
+    <Content Include="fontawsom\svgs\solid\mobile-button.svg" />
+    <Content Include="fontawsom\svgs\solid\mobile-retro.svg" />
+    <Content Include="fontawsom\svgs\solid\mobile-screen-button.svg" />
+    <Content Include="fontawsom\svgs\solid\mobile-screen.svg" />
+    <Content Include="fontawsom\svgs\solid\mobile.svg" />
+    <Content Include="fontawsom\svgs\solid\money-bill-1-wave.svg" />
+    <Content Include="fontawsom\svgs\solid\money-bill-1.svg" />
+    <Content Include="fontawsom\svgs\solid\money-bill-transfer.svg" />
+    <Content Include="fontawsom\svgs\solid\money-bill-trend-up.svg" />
+    <Content Include="fontawsom\svgs\solid\money-bill-wave.svg" />
+    <Content Include="fontawsom\svgs\solid\money-bill-wheat.svg" />
+    <Content Include="fontawsom\svgs\solid\money-bill.svg" />
+    <Content Include="fontawsom\svgs\solid\money-bills.svg" />
+    <Content Include="fontawsom\svgs\solid\money-check-dollar.svg" />
+    <Content Include="fontawsom\svgs\solid\money-check.svg" />
+    <Content Include="fontawsom\svgs\solid\monument.svg" />
+    <Content Include="fontawsom\svgs\solid\moon.svg" />
+    <Content Include="fontawsom\svgs\solid\mortar-pestle.svg" />
+    <Content Include="fontawsom\svgs\solid\mosque.svg" />
+    <Content Include="fontawsom\svgs\solid\mosquito-net.svg" />
+    <Content Include="fontawsom\svgs\solid\mosquito.svg" />
+    <Content Include="fontawsom\svgs\solid\motorcycle.svg" />
+    <Content Include="fontawsom\svgs\solid\mound.svg" />
+    <Content Include="fontawsom\svgs\solid\mountain-city.svg" />
+    <Content Include="fontawsom\svgs\solid\mountain-sun.svg" />
+    <Content Include="fontawsom\svgs\solid\mountain.svg" />
+    <Content Include="fontawsom\svgs\solid\mug-hot.svg" />
+    <Content Include="fontawsom\svgs\solid\mug-saucer.svg" />
+    <Content Include="fontawsom\svgs\solid\music.svg" />
+    <Content Include="fontawsom\svgs\solid\n.svg" />
+    <Content Include="fontawsom\svgs\solid\naira-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\network-wired.svg" />
+    <Content Include="fontawsom\svgs\solid\neuter.svg" />
+    <Content Include="fontawsom\svgs\solid\newspaper.svg" />
+    <Content Include="fontawsom\svgs\solid\not-equal.svg" />
+    <Content Include="fontawsom\svgs\solid\note-sticky.svg" />
+    <Content Include="fontawsom\svgs\solid\notes-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\o.svg" />
+    <Content Include="fontawsom\svgs\solid\object-group.svg" />
+    <Content Include="fontawsom\svgs\solid\object-ungroup.svg" />
+    <Content Include="fontawsom\svgs\solid\oil-can.svg" />
+    <Content Include="fontawsom\svgs\solid\oil-well.svg" />
+    <Content Include="fontawsom\svgs\solid\om.svg" />
+    <Content Include="fontawsom\svgs\solid\otter.svg" />
+    <Content Include="fontawsom\svgs\solid\outdent.svg" />
+    <Content Include="fontawsom\svgs\solid\p.svg" />
+    <Content Include="fontawsom\svgs\solid\pager.svg" />
+    <Content Include="fontawsom\svgs\solid\paint-roller.svg" />
+    <Content Include="fontawsom\svgs\solid\paintbrush.svg" />
+    <Content Include="fontawsom\svgs\solid\palette.svg" />
+    <Content Include="fontawsom\svgs\solid\pallet.svg" />
+    <Content Include="fontawsom\svgs\solid\panorama.svg" />
+    <Content Include="fontawsom\svgs\solid\paper-plane.svg" />
+    <Content Include="fontawsom\svgs\solid\paperclip.svg" />
+    <Content Include="fontawsom\svgs\solid\parachute-box.svg" />
+    <Content Include="fontawsom\svgs\solid\paragraph.svg" />
+    <Content Include="fontawsom\svgs\solid\passport.svg" />
+    <Content Include="fontawsom\svgs\solid\paste.svg" />
+    <Content Include="fontawsom\svgs\solid\pause.svg" />
+    <Content Include="fontawsom\svgs\solid\paw.svg" />
+    <Content Include="fontawsom\svgs\solid\peace.svg" />
+    <Content Include="fontawsom\svgs\solid\pen-clip.svg" />
+    <Content Include="fontawsom\svgs\solid\pen-fancy.svg" />
+    <Content Include="fontawsom\svgs\solid\pen-nib.svg" />
+    <Content Include="fontawsom\svgs\solid\pen-ruler.svg" />
+    <Content Include="fontawsom\svgs\solid\pen-to-square.svg" />
+    <Content Include="fontawsom\svgs\solid\pen.svg" />
+    <Content Include="fontawsom\svgs\solid\pencil.svg" />
+    <Content Include="fontawsom\svgs\solid\people-arrows-left-right.svg" />
+    <Content Include="fontawsom\svgs\solid\people-carry-box.svg" />
+    <Content Include="fontawsom\svgs\solid\people-group.svg" />
+    <Content Include="fontawsom\svgs\solid\people-line.svg" />
+    <Content Include="fontawsom\svgs\solid\people-pulling.svg" />
+    <Content Include="fontawsom\svgs\solid\people-robbery.svg" />
+    <Content Include="fontawsom\svgs\solid\people-roof.svg" />
+    <Content Include="fontawsom\svgs\solid\pepper-hot.svg" />
+    <Content Include="fontawsom\svgs\solid\percent.svg" />
+    <Content Include="fontawsom\svgs\solid\person-arrow-down-to-line.svg" />
+    <Content Include="fontawsom\svgs\solid\person-arrow-up-from-line.svg" />
+    <Content Include="fontawsom\svgs\solid\person-biking.svg" />
+    <Content Include="fontawsom\svgs\solid\person-booth.svg" />
+    <Content Include="fontawsom\svgs\solid\person-breastfeeding.svg" />
+    <Content Include="fontawsom\svgs\solid\person-burst.svg" />
+    <Content Include="fontawsom\svgs\solid\person-cane.svg" />
+    <Content Include="fontawsom\svgs\solid\person-chalkboard.svg" />
+    <Content Include="fontawsom\svgs\solid\person-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\person-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\person-circle-minus.svg" />
+    <Content Include="fontawsom\svgs\solid\person-circle-plus.svg" />
+    <Content Include="fontawsom\svgs\solid\person-circle-question.svg" />
+    <Content Include="fontawsom\svgs\solid\person-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\person-digging.svg" />
+    <Content Include="fontawsom\svgs\solid\person-dots-from-line.svg" />
+    <Content Include="fontawsom\svgs\solid\person-dress-burst.svg" />
+    <Content Include="fontawsom\svgs\solid\person-dress.svg" />
+    <Content Include="fontawsom\svgs\solid\person-drowning.svg" />
+    <Content Include="fontawsom\svgs\solid\person-falling-burst.svg" />
+    <Content Include="fontawsom\svgs\solid\person-falling.svg" />
+    <Content Include="fontawsom\svgs\solid\person-half-dress.svg" />
+    <Content Include="fontawsom\svgs\solid\person-harassing.svg" />
+    <Content Include="fontawsom\svgs\solid\person-hiking.svg" />
+    <Content Include="fontawsom\svgs\solid\person-military-pointing.svg" />
+    <Content Include="fontawsom\svgs\solid\person-military-rifle.svg" />
+    <Content Include="fontawsom\svgs\solid\person-military-to-person.svg" />
+    <Content Include="fontawsom\svgs\solid\person-praying.svg" />
+    <Content Include="fontawsom\svgs\solid\person-pregnant.svg" />
+    <Content Include="fontawsom\svgs\solid\person-rays.svg" />
+    <Content Include="fontawsom\svgs\solid\person-rifle.svg" />
+    <Content Include="fontawsom\svgs\solid\person-running.svg" />
+    <Content Include="fontawsom\svgs\solid\person-shelter.svg" />
+    <Content Include="fontawsom\svgs\solid\person-skating.svg" />
+    <Content Include="fontawsom\svgs\solid\person-skiing-nordic.svg" />
+    <Content Include="fontawsom\svgs\solid\person-skiing.svg" />
+    <Content Include="fontawsom\svgs\solid\person-snowboarding.svg" />
+    <Content Include="fontawsom\svgs\solid\person-swimming.svg" />
+    <Content Include="fontawsom\svgs\solid\person-through-window.svg" />
+    <Content Include="fontawsom\svgs\solid\person-walking-arrow-loop-left.svg" />
+    <Content Include="fontawsom\svgs\solid\person-walking-arrow-right.svg" />
+    <Content Include="fontawsom\svgs\solid\person-walking-dashed-line-arrow-right.svg" />
+    <Content Include="fontawsom\svgs\solid\person-walking-luggage.svg" />
+    <Content Include="fontawsom\svgs\solid\person-walking-with-cane.svg" />
+    <Content Include="fontawsom\svgs\solid\person-walking.svg" />
+    <Content Include="fontawsom\svgs\solid\person.svg" />
+    <Content Include="fontawsom\svgs\solid\peseta-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\peso-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\phone-flip.svg" />
+    <Content Include="fontawsom\svgs\solid\phone-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\phone-volume.svg" />
+    <Content Include="fontawsom\svgs\solid\phone.svg" />
+    <Content Include="fontawsom\svgs\solid\photo-film.svg" />
+    <Content Include="fontawsom\svgs\solid\piggy-bank.svg" />
+    <Content Include="fontawsom\svgs\solid\pills.svg" />
+    <Content Include="fontawsom\svgs\solid\pizza-slice.svg" />
+    <Content Include="fontawsom\svgs\solid\place-of-worship.svg" />
+    <Content Include="fontawsom\svgs\solid\plane-arrival.svg" />
+    <Content Include="fontawsom\svgs\solid\plane-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\plane-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\plane-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\plane-departure.svg" />
+    <Content Include="fontawsom\svgs\solid\plane-lock.svg" />
+    <Content Include="fontawsom\svgs\solid\plane-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\plane-up.svg" />
+    <Content Include="fontawsom\svgs\solid\plane.svg" />
+    <Content Include="fontawsom\svgs\solid\plant-wilt.svg" />
+    <Content Include="fontawsom\svgs\solid\plate-wheat.svg" />
+    <Content Include="fontawsom\svgs\solid\play.svg" />
+    <Content Include="fontawsom\svgs\solid\plug-circle-bolt.svg" />
+    <Content Include="fontawsom\svgs\solid\plug-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\plug-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\plug-circle-minus.svg" />
+    <Content Include="fontawsom\svgs\solid\plug-circle-plus.svg" />
+    <Content Include="fontawsom\svgs\solid\plug-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\plug.svg" />
+    <Content Include="fontawsom\svgs\solid\plus-minus.svg" />
+    <Content Include="fontawsom\svgs\solid\plus.svg" />
+    <Content Include="fontawsom\svgs\solid\podcast.svg" />
+    <Content Include="fontawsom\svgs\solid\poo-storm.svg" />
+    <Content Include="fontawsom\svgs\solid\poo.svg" />
+    <Content Include="fontawsom\svgs\solid\poop.svg" />
+    <Content Include="fontawsom\svgs\solid\power-off.svg" />
+    <Content Include="fontawsom\svgs\solid\prescription-bottle-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\prescription-bottle.svg" />
+    <Content Include="fontawsom\svgs\solid\prescription.svg" />
+    <Content Include="fontawsom\svgs\solid\print.svg" />
+    <Content Include="fontawsom\svgs\solid\pump-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\pump-soap.svg" />
+    <Content Include="fontawsom\svgs\solid\puzzle-piece.svg" />
+    <Content Include="fontawsom\svgs\solid\q.svg" />
+    <Content Include="fontawsom\svgs\solid\qrcode.svg" />
+    <Content Include="fontawsom\svgs\solid\question.svg" />
+    <Content Include="fontawsom\svgs\solid\quote-left.svg" />
+    <Content Include="fontawsom\svgs\solid\quote-right.svg" />
+    <Content Include="fontawsom\svgs\solid\r.svg" />
+    <Content Include="fontawsom\svgs\solid\radiation.svg" />
+    <Content Include="fontawsom\svgs\solid\radio.svg" />
+    <Content Include="fontawsom\svgs\solid\rainbow.svg" />
+    <Content Include="fontawsom\svgs\solid\ranking-star.svg" />
+    <Content Include="fontawsom\svgs\solid\receipt.svg" />
+    <Content Include="fontawsom\svgs\solid\record-vinyl.svg" />
+    <Content Include="fontawsom\svgs\solid\rectangle-ad.svg" />
+    <Content Include="fontawsom\svgs\solid\rectangle-list.svg" />
+    <Content Include="fontawsom\svgs\solid\rectangle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\recycle.svg" />
+    <Content Include="fontawsom\svgs\solid\registered.svg" />
+    <Content Include="fontawsom\svgs\solid\repeat.svg" />
+    <Content Include="fontawsom\svgs\solid\reply-all.svg" />
+    <Content Include="fontawsom\svgs\solid\reply.svg" />
+    <Content Include="fontawsom\svgs\solid\republican.svg" />
+    <Content Include="fontawsom\svgs\solid\restroom.svg" />
+    <Content Include="fontawsom\svgs\solid\retweet.svg" />
+    <Content Include="fontawsom\svgs\solid\ribbon.svg" />
+    <Content Include="fontawsom\svgs\solid\right-from-bracket.svg" />
+    <Content Include="fontawsom\svgs\solid\right-left.svg" />
+    <Content Include="fontawsom\svgs\solid\right-long.svg" />
+    <Content Include="fontawsom\svgs\solid\right-to-bracket.svg" />
+    <Content Include="fontawsom\svgs\solid\ring.svg" />
+    <Content Include="fontawsom\svgs\solid\road-barrier.svg" />
+    <Content Include="fontawsom\svgs\solid\road-bridge.svg" />
+    <Content Include="fontawsom\svgs\solid\road-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\road-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\road-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\road-lock.svg" />
+    <Content Include="fontawsom\svgs\solid\road-spikes.svg" />
+    <Content Include="fontawsom\svgs\solid\road.svg" />
+    <Content Include="fontawsom\svgs\solid\robot.svg" />
+    <Content Include="fontawsom\svgs\solid\rocket.svg" />
+    <Content Include="fontawsom\svgs\solid\rotate-left.svg" />
+    <Content Include="fontawsom\svgs\solid\rotate-right.svg" />
+    <Content Include="fontawsom\svgs\solid\rotate.svg" />
+    <Content Include="fontawsom\svgs\solid\route.svg" />
+    <Content Include="fontawsom\svgs\solid\rss.svg" />
+    <Content Include="fontawsom\svgs\solid\ruble-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\rug.svg" />
+    <Content Include="fontawsom\svgs\solid\ruler-combined.svg" />
+    <Content Include="fontawsom\svgs\solid\ruler-horizontal.svg" />
+    <Content Include="fontawsom\svgs\solid\ruler-vertical.svg" />
+    <Content Include="fontawsom\svgs\solid\ruler.svg" />
+    <Content Include="fontawsom\svgs\solid\rupee-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\rupiah-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\s.svg" />
+    <Content Include="fontawsom\svgs\solid\sack-dollar.svg" />
+    <Content Include="fontawsom\svgs\solid\sack-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\sailboat.svg" />
+    <Content Include="fontawsom\svgs\solid\satellite-dish.svg" />
+    <Content Include="fontawsom\svgs\solid\satellite.svg" />
+    <Content Include="fontawsom\svgs\solid\scale-balanced.svg" />
+    <Content Include="fontawsom\svgs\solid\scale-unbalanced-flip.svg" />
+    <Content Include="fontawsom\svgs\solid\scale-unbalanced.svg" />
+    <Content Include="fontawsom\svgs\solid\school-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\school-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\school-circle-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\school-flag.svg" />
+    <Content Include="fontawsom\svgs\solid\school-lock.svg" />
+    <Content Include="fontawsom\svgs\solid\school.svg" />
+    <Content Include="fontawsom\svgs\solid\scissors.svg" />
+    <Content Include="fontawsom\svgs\solid\screwdriver-wrench.svg" />
+    <Content Include="fontawsom\svgs\solid\screwdriver.svg" />
+    <Content Include="fontawsom\svgs\solid\scroll-torah.svg" />
+    <Content Include="fontawsom\svgs\solid\scroll.svg" />
+    <Content Include="fontawsom\svgs\solid\sd-card.svg" />
+    <Content Include="fontawsom\svgs\solid\section.svg" />
+    <Content Include="fontawsom\svgs\solid\seedling.svg" />
+    <Content Include="fontawsom\svgs\solid\server.svg" />
+    <Content Include="fontawsom\svgs\solid\shapes.svg" />
+    <Content Include="fontawsom\svgs\solid\share-from-square.svg" />
+    <Content Include="fontawsom\svgs\solid\share-nodes.svg" />
+    <Content Include="fontawsom\svgs\solid\share.svg" />
+    <Content Include="fontawsom\svgs\solid\sheet-plastic.svg" />
+    <Content Include="fontawsom\svgs\solid\shekel-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\shield-cat.svg" />
+    <Content Include="fontawsom\svgs\solid\shield-dog.svg" />
+    <Content Include="fontawsom\svgs\solid\shield-halved.svg" />
+    <Content Include="fontawsom\svgs\solid\shield-heart.svg" />
+    <Content Include="fontawsom\svgs\solid\shield-virus.svg" />
+    <Content Include="fontawsom\svgs\solid\shield.svg" />
+    <Content Include="fontawsom\svgs\solid\ship.svg" />
+    <Content Include="fontawsom\svgs\solid\shirt.svg" />
+    <Content Include="fontawsom\svgs\solid\shoe-prints.svg" />
+    <Content Include="fontawsom\svgs\solid\shop-lock.svg" />
+    <Content Include="fontawsom\svgs\solid\shop-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\shop.svg" />
+    <Content Include="fontawsom\svgs\solid\shower.svg" />
+    <Content Include="fontawsom\svgs\solid\shrimp.svg" />
+    <Content Include="fontawsom\svgs\solid\shuffle.svg" />
+    <Content Include="fontawsom\svgs\solid\shuttle-space.svg" />
+    <Content Include="fontawsom\svgs\solid\sign-hanging.svg" />
+    <Content Include="fontawsom\svgs\solid\signal.svg" />
+    <Content Include="fontawsom\svgs\solid\signature.svg" />
+    <Content Include="fontawsom\svgs\solid\signs-post.svg" />
+    <Content Include="fontawsom\svgs\solid\sim-card.svg" />
+    <Content Include="fontawsom\svgs\solid\sink.svg" />
+    <Content Include="fontawsom\svgs\solid\sitemap.svg" />
+    <Content Include="fontawsom\svgs\solid\skull-crossbones.svg" />
+    <Content Include="fontawsom\svgs\solid\skull.svg" />
+    <Content Include="fontawsom\svgs\solid\slash.svg" />
+    <Content Include="fontawsom\svgs\solid\sleigh.svg" />
+    <Content Include="fontawsom\svgs\solid\sliders.svg" />
+    <Content Include="fontawsom\svgs\solid\smog.svg" />
+    <Content Include="fontawsom\svgs\solid\smoking.svg" />
+    <Content Include="fontawsom\svgs\solid\snowflake.svg" />
+    <Content Include="fontawsom\svgs\solid\snowman.svg" />
+    <Content Include="fontawsom\svgs\solid\snowplow.svg" />
+    <Content Include="fontawsom\svgs\solid\soap.svg" />
+    <Content Include="fontawsom\svgs\solid\socks.svg" />
+    <Content Include="fontawsom\svgs\solid\solar-panel.svg" />
+    <Content Include="fontawsom\svgs\solid\sort-down.svg" />
+    <Content Include="fontawsom\svgs\solid\sort-up.svg" />
+    <Content Include="fontawsom\svgs\solid\sort.svg" />
+    <Content Include="fontawsom\svgs\solid\spa.svg" />
+    <Content Include="fontawsom\svgs\solid\spaghetti-monster-flying.svg" />
+    <Content Include="fontawsom\svgs\solid\spell-check.svg" />
+    <Content Include="fontawsom\svgs\solid\spider.svg" />
+    <Content Include="fontawsom\svgs\solid\spinner.svg" />
+    <Content Include="fontawsom\svgs\solid\splotch.svg" />
+    <Content Include="fontawsom\svgs\solid\spoon.svg" />
+    <Content Include="fontawsom\svgs\solid\spray-can-sparkles.svg" />
+    <Content Include="fontawsom\svgs\solid\spray-can.svg" />
+    <Content Include="fontawsom\svgs\solid\square-arrow-up-right.svg" />
+    <Content Include="fontawsom\svgs\solid\square-caret-down.svg" />
+    <Content Include="fontawsom\svgs\solid\square-caret-left.svg" />
+    <Content Include="fontawsom\svgs\solid\square-caret-right.svg" />
+    <Content Include="fontawsom\svgs\solid\square-caret-up.svg" />
+    <Content Include="fontawsom\svgs\solid\square-check.svg" />
+    <Content Include="fontawsom\svgs\solid\square-envelope.svg" />
+    <Content Include="fontawsom\svgs\solid\square-full.svg" />
+    <Content Include="fontawsom\svgs\solid\square-h.svg" />
+    <Content Include="fontawsom\svgs\solid\square-minus.svg" />
+    <Content Include="fontawsom\svgs\solid\square-nfi.svg" />
+    <Content Include="fontawsom\svgs\solid\square-parking.svg" />
+    <Content Include="fontawsom\svgs\solid\square-pen.svg" />
+    <Content Include="fontawsom\svgs\solid\square-person-confined.svg" />
+    <Content Include="fontawsom\svgs\solid\square-phone-flip.svg" />
+    <Content Include="fontawsom\svgs\solid\square-phone.svg" />
+    <Content Include="fontawsom\svgs\solid\square-plus.svg" />
+    <Content Include="fontawsom\svgs\solid\square-poll-horizontal.svg" />
+    <Content Include="fontawsom\svgs\solid\square-poll-vertical.svg" />
+    <Content Include="fontawsom\svgs\solid\square-root-variable.svg" />
+    <Content Include="fontawsom\svgs\solid\square-rss.svg" />
+    <Content Include="fontawsom\svgs\solid\square-share-nodes.svg" />
+    <Content Include="fontawsom\svgs\solid\square-up-right.svg" />
+    <Content Include="fontawsom\svgs\solid\square-virus.svg" />
+    <Content Include="fontawsom\svgs\solid\square-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\square.svg" />
+    <Content Include="fontawsom\svgs\solid\staff-aesculapius.svg" />
+    <Content Include="fontawsom\svgs\solid\stairs.svg" />
+    <Content Include="fontawsom\svgs\solid\stamp.svg" />
+    <Content Include="fontawsom\svgs\solid\star-and-crescent.svg" />
+    <Content Include="fontawsom\svgs\solid\star-half-stroke.svg" />
+    <Content Include="fontawsom\svgs\solid\star-half.svg" />
+    <Content Include="fontawsom\svgs\solid\star-of-david.svg" />
+    <Content Include="fontawsom\svgs\solid\star-of-life.svg" />
+    <Content Include="fontawsom\svgs\solid\star.svg" />
+    <Content Include="fontawsom\svgs\solid\sterling-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\stethoscope.svg" />
+    <Content Include="fontawsom\svgs\solid\stop.svg" />
+    <Content Include="fontawsom\svgs\solid\stopwatch-20.svg" />
+    <Content Include="fontawsom\svgs\solid\stopwatch.svg" />
+    <Content Include="fontawsom\svgs\solid\store-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\store.svg" />
+    <Content Include="fontawsom\svgs\solid\street-view.svg" />
+    <Content Include="fontawsom\svgs\solid\strikethrough.svg" />
+    <Content Include="fontawsom\svgs\solid\stroopwafel.svg" />
+    <Content Include="fontawsom\svgs\solid\subscript.svg" />
+    <Content Include="fontawsom\svgs\solid\suitcase-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\suitcase-rolling.svg" />
+    <Content Include="fontawsom\svgs\solid\suitcase.svg" />
+    <Content Include="fontawsom\svgs\solid\sun-plant-wilt.svg" />
+    <Content Include="fontawsom\svgs\solid\sun.svg" />
+    <Content Include="fontawsom\svgs\solid\superscript.svg" />
+    <Content Include="fontawsom\svgs\solid\swatchbook.svg" />
+    <Content Include="fontawsom\svgs\solid\synagogue.svg" />
+    <Content Include="fontawsom\svgs\solid\syringe.svg" />
+    <Content Include="fontawsom\svgs\solid\t.svg" />
+    <Content Include="fontawsom\svgs\solid\table-cells-large.svg" />
+    <Content Include="fontawsom\svgs\solid\table-cells.svg" />
+    <Content Include="fontawsom\svgs\solid\table-columns.svg" />
+    <Content Include="fontawsom\svgs\solid\table-list.svg" />
+    <Content Include="fontawsom\svgs\solid\table-tennis-paddle-ball.svg" />
+    <Content Include="fontawsom\svgs\solid\table.svg" />
+    <Content Include="fontawsom\svgs\solid\tablet-button.svg" />
+    <Content Include="fontawsom\svgs\solid\tablet-screen-button.svg" />
+    <Content Include="fontawsom\svgs\solid\tablet.svg" />
+    <Content Include="fontawsom\svgs\solid\tablets.svg" />
+    <Content Include="fontawsom\svgs\solid\tachograph-digital.svg" />
+    <Content Include="fontawsom\svgs\solid\tag.svg" />
+    <Content Include="fontawsom\svgs\solid\tags.svg" />
+    <Content Include="fontawsom\svgs\solid\tape.svg" />
+    <Content Include="fontawsom\svgs\solid\tarp-droplet.svg" />
+    <Content Include="fontawsom\svgs\solid\tarp.svg" />
+    <Content Include="fontawsom\svgs\solid\taxi.svg" />
+    <Content Include="fontawsom\svgs\solid\teeth-open.svg" />
+    <Content Include="fontawsom\svgs\solid\teeth.svg" />
+    <Content Include="fontawsom\svgs\solid\temperature-arrow-down.svg" />
+    <Content Include="fontawsom\svgs\solid\temperature-arrow-up.svg" />
+    <Content Include="fontawsom\svgs\solid\temperature-empty.svg" />
+    <Content Include="fontawsom\svgs\solid\temperature-full.svg" />
+    <Content Include="fontawsom\svgs\solid\temperature-half.svg" />
+    <Content Include="fontawsom\svgs\solid\temperature-high.svg" />
+    <Content Include="fontawsom\svgs\solid\temperature-low.svg" />
+    <Content Include="fontawsom\svgs\solid\temperature-quarter.svg" />
+    <Content Include="fontawsom\svgs\solid\temperature-three-quarters.svg" />
+    <Content Include="fontawsom\svgs\solid\tenge-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\tent-arrow-down-to-line.svg" />
+    <Content Include="fontawsom\svgs\solid\tent-arrow-left-right.svg" />
+    <Content Include="fontawsom\svgs\solid\tent-arrow-turn-left.svg" />
+    <Content Include="fontawsom\svgs\solid\tent-arrows-down.svg" />
+    <Content Include="fontawsom\svgs\solid\tent.svg" />
+    <Content Include="fontawsom\svgs\solid\tents.svg" />
+    <Content Include="fontawsom\svgs\solid\terminal.svg" />
+    <Content Include="fontawsom\svgs\solid\text-height.svg" />
+    <Content Include="fontawsom\svgs\solid\text-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\text-width.svg" />
+    <Content Include="fontawsom\svgs\solid\thermometer.svg" />
+    <Content Include="fontawsom\svgs\solid\thumbs-down.svg" />
+    <Content Include="fontawsom\svgs\solid\thumbs-up.svg" />
+    <Content Include="fontawsom\svgs\solid\thumbtack.svg" />
+    <Content Include="fontawsom\svgs\solid\ticket-simple.svg" />
+    <Content Include="fontawsom\svgs\solid\ticket.svg" />
+    <Content Include="fontawsom\svgs\solid\timeline.svg" />
+    <Content Include="fontawsom\svgs\solid\toggle-off.svg" />
+    <Content Include="fontawsom\svgs\solid\toggle-on.svg" />
+    <Content Include="fontawsom\svgs\solid\toilet-paper-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\toilet-paper.svg" />
+    <Content Include="fontawsom\svgs\solid\toilet-portable.svg" />
+    <Content Include="fontawsom\svgs\solid\toilet.svg" />
+    <Content Include="fontawsom\svgs\solid\toilets-portable.svg" />
+    <Content Include="fontawsom\svgs\solid\toolbox.svg" />
+    <Content Include="fontawsom\svgs\solid\tooth.svg" />
+    <Content Include="fontawsom\svgs\solid\torii-gate.svg" />
+    <Content Include="fontawsom\svgs\solid\tornado.svg" />
+    <Content Include="fontawsom\svgs\solid\tower-broadcast.svg" />
+    <Content Include="fontawsom\svgs\solid\tower-cell.svg" />
+    <Content Include="fontawsom\svgs\solid\tower-observation.svg" />
+    <Content Include="fontawsom\svgs\solid\tractor.svg" />
+    <Content Include="fontawsom\svgs\solid\trademark.svg" />
+    <Content Include="fontawsom\svgs\solid\traffic-light.svg" />
+    <Content Include="fontawsom\svgs\solid\trailer.svg" />
+    <Content Include="fontawsom\svgs\solid\train-subway.svg" />
+    <Content Include="fontawsom\svgs\solid\train-tram.svg" />
+    <Content Include="fontawsom\svgs\solid\train.svg" />
+    <Content Include="fontawsom\svgs\solid\transgender.svg" />
+    <Content Include="fontawsom\svgs\solid\trash-arrow-up.svg" />
+    <Content Include="fontawsom\svgs\solid\trash-can-arrow-up.svg" />
+    <Content Include="fontawsom\svgs\solid\trash-can.svg" />
+    <Content Include="fontawsom\svgs\solid\trash.svg" />
+    <Content Include="fontawsom\svgs\solid\tree-city.svg" />
+    <Content Include="fontawsom\svgs\solid\tree.svg" />
+    <Content Include="fontawsom\svgs\solid\triangle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\trophy.svg" />
+    <Content Include="fontawsom\svgs\solid\trowel-bricks.svg" />
+    <Content Include="fontawsom\svgs\solid\trowel.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-arrow-right.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-droplet.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-fast.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-field-un.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-field.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-front.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-medical.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-monster.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-moving.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-pickup.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-plane.svg" />
+    <Content Include="fontawsom\svgs\solid\truck-ramp-box.svg" />
+    <Content Include="fontawsom\svgs\solid\truck.svg" />
+    <Content Include="fontawsom\svgs\solid\tty.svg" />
+    <Content Include="fontawsom\svgs\solid\turkish-lira-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\turn-down.svg" />
+    <Content Include="fontawsom\svgs\solid\turn-up.svg" />
+    <Content Include="fontawsom\svgs\solid\tv.svg" />
+    <Content Include="fontawsom\svgs\solid\u.svg" />
+    <Content Include="fontawsom\svgs\solid\umbrella-beach.svg" />
+    <Content Include="fontawsom\svgs\solid\umbrella.svg" />
+    <Content Include="fontawsom\svgs\solid\underline.svg" />
+    <Content Include="fontawsom\svgs\solid\universal-access.svg" />
+    <Content Include="fontawsom\svgs\solid\unlock-keyhole.svg" />
+    <Content Include="fontawsom\svgs\solid\unlock.svg" />
+    <Content Include="fontawsom\svgs\solid\up-down-left-right.svg" />
+    <Content Include="fontawsom\svgs\solid\up-down.svg" />
+    <Content Include="fontawsom\svgs\solid\up-long.svg" />
+    <Content Include="fontawsom\svgs\solid\up-right-and-down-left-from-center.svg" />
+    <Content Include="fontawsom\svgs\solid\up-right-from-square.svg" />
+    <Content Include="fontawsom\svgs\solid\upload.svg" />
+    <Content Include="fontawsom\svgs\solid\user-astronaut.svg" />
+    <Content Include="fontawsom\svgs\solid\user-check.svg" />
+    <Content Include="fontawsom\svgs\solid\user-clock.svg" />
+    <Content Include="fontawsom\svgs\solid\user-doctor.svg" />
+    <Content Include="fontawsom\svgs\solid\user-gear.svg" />
+    <Content Include="fontawsom\svgs\solid\user-graduate.svg" />
+    <Content Include="fontawsom\svgs\solid\user-group.svg" />
+    <Content Include="fontawsom\svgs\solid\user-injured.svg" />
+    <Content Include="fontawsom\svgs\solid\user-large-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\user-large.svg" />
+    <Content Include="fontawsom\svgs\solid\user-lock.svg" />
+    <Content Include="fontawsom\svgs\solid\user-minus.svg" />
+    <Content Include="fontawsom\svgs\solid\user-ninja.svg" />
+    <Content Include="fontawsom\svgs\solid\user-nurse.svg" />
+    <Content Include="fontawsom\svgs\solid\user-pen.svg" />
+    <Content Include="fontawsom\svgs\solid\user-plus.svg" />
+    <Content Include="fontawsom\svgs\solid\user-secret.svg" />
+    <Content Include="fontawsom\svgs\solid\user-shield.svg" />
+    <Content Include="fontawsom\svgs\solid\user-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\user-tag.svg" />
+    <Content Include="fontawsom\svgs\solid\user-tie.svg" />
+    <Content Include="fontawsom\svgs\solid\user-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\user.svg" />
+    <Content Include="fontawsom\svgs\solid\users-between-lines.svg" />
+    <Content Include="fontawsom\svgs\solid\users-gear.svg" />
+    <Content Include="fontawsom\svgs\solid\users-line.svg" />
+    <Content Include="fontawsom\svgs\solid\users-rays.svg" />
+    <Content Include="fontawsom\svgs\solid\users-rectangle.svg" />
+    <Content Include="fontawsom\svgs\solid\users-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\users-viewfinder.svg" />
+    <Content Include="fontawsom\svgs\solid\users.svg" />
+    <Content Include="fontawsom\svgs\solid\utensils.svg" />
+    <Content Include="fontawsom\svgs\solid\v.svg" />
+    <Content Include="fontawsom\svgs\solid\van-shuttle.svg" />
+    <Content Include="fontawsom\svgs\solid\vault.svg" />
+    <Content Include="fontawsom\svgs\solid\vector-square.svg" />
+    <Content Include="fontawsom\svgs\solid\venus-double.svg" />
+    <Content Include="fontawsom\svgs\solid\venus-mars.svg" />
+    <Content Include="fontawsom\svgs\solid\venus.svg" />
+    <Content Include="fontawsom\svgs\solid\vest-patches.svg" />
+    <Content Include="fontawsom\svgs\solid\vest.svg" />
+    <Content Include="fontawsom\svgs\solid\vial-circle-check.svg" />
+    <Content Include="fontawsom\svgs\solid\vial-virus.svg" />
+    <Content Include="fontawsom\svgs\solid\vial.svg" />
+    <Content Include="fontawsom\svgs\solid\vials.svg" />
+    <Content Include="fontawsom\svgs\solid\video-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\video.svg" />
+    <Content Include="fontawsom\svgs\solid\vihara.svg" />
+    <Content Include="fontawsom\svgs\solid\virus-covid-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\virus-covid.svg" />
+    <Content Include="fontawsom\svgs\solid\virus-slash.svg" />
+    <Content Include="fontawsom\svgs\solid\virus.svg" />
+    <Content Include="fontawsom\svgs\solid\viruses.svg" />
+    <Content Include="fontawsom\svgs\solid\voicemail.svg" />
+    <Content Include="fontawsom\svgs\solid\volcano.svg" />
+    <Content Include="fontawsom\svgs\solid\volleyball.svg" />
+    <Content Include="fontawsom\svgs\solid\volume-high.svg" />
+    <Content Include="fontawsom\svgs\solid\volume-low.svg" />
+    <Content Include="fontawsom\svgs\solid\volume-off.svg" />
+    <Content Include="fontawsom\svgs\solid\volume-xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\vr-cardboard.svg" />
+    <Content Include="fontawsom\svgs\solid\w.svg" />
+    <Content Include="fontawsom\svgs\solid\walkie-talkie.svg" />
+    <Content Include="fontawsom\svgs\solid\wallet.svg" />
+    <Content Include="fontawsom\svgs\solid\wand-magic-sparkles.svg" />
+    <Content Include="fontawsom\svgs\solid\wand-magic.svg" />
+    <Content Include="fontawsom\svgs\solid\wand-sparkles.svg" />
+    <Content Include="fontawsom\svgs\solid\warehouse.svg" />
+    <Content Include="fontawsom\svgs\solid\water-ladder.svg" />
+    <Content Include="fontawsom\svgs\solid\water.svg" />
+    <Content Include="fontawsom\svgs\solid\wave-square.svg" />
+    <Content Include="fontawsom\svgs\solid\weight-hanging.svg" />
+    <Content Include="fontawsom\svgs\solid\weight-scale.svg" />
+    <Content Include="fontawsom\svgs\solid\wheat-awn-circle-exclamation.svg" />
+    <Content Include="fontawsom\svgs\solid\wheat-awn.svg" />
+    <Content Include="fontawsom\svgs\solid\wheelchair-move.svg" />
+    <Content Include="fontawsom\svgs\solid\wheelchair.svg" />
+    <Content Include="fontawsom\svgs\solid\whiskey-glass.svg" />
+    <Content Include="fontawsom\svgs\solid\wifi.svg" />
+    <Content Include="fontawsom\svgs\solid\wind.svg" />
+    <Content Include="fontawsom\svgs\solid\window-maximize.svg" />
+    <Content Include="fontawsom\svgs\solid\window-minimize.svg" />
+    <Content Include="fontawsom\svgs\solid\window-restore.svg" />
+    <Content Include="fontawsom\svgs\solid\wine-bottle.svg" />
+    <Content Include="fontawsom\svgs\solid\wine-glass-empty.svg" />
+    <Content Include="fontawsom\svgs\solid\wine-glass.svg" />
+    <Content Include="fontawsom\svgs\solid\won-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\worm.svg" />
+    <Content Include="fontawsom\svgs\solid\wrench.svg" />
+    <Content Include="fontawsom\svgs\solid\x-ray.svg" />
+    <Content Include="fontawsom\svgs\solid\x.svg" />
+    <Content Include="fontawsom\svgs\solid\xmark.svg" />
+    <Content Include="fontawsom\svgs\solid\xmarks-lines.svg" />
+    <Content Include="fontawsom\svgs\solid\y.svg" />
+    <Content Include="fontawsom\svgs\solid\yen-sign.svg" />
+    <Content Include="fontawsom\svgs\solid\yin-yang.svg" />
+    <Content Include="fontawsom\svgs\solid\z.svg" />
+    <Content Include="homepage.aspx" />
+    <Content Include="images\022421tigerwoodsaccidentsplashupdate_960x540.jpg" />
+    <Content Include="images\600.-How-to-Get-an-Accident-Report-in-Connecticut.jpg" />
+    <Content Include="images\accident-helpline.png" />
+    <Content Include="images\accident-report-form-accident-report-form-man-write-application-pen-clipboard-hand-vector-illustration-isometric-design-141388410.jpg" />
+    <Content Include="images\crafted.png" />
+    <Content Include="images\images.png" />
+    <Content Include="images\index.png" />
+    <Content Include="images\istockphoto-1070111414-170667a.jpg" />
+    <Content Include="images\istockphoto-1202876479-612x612.jpg" />
+    <Content Include="images\istockphoto-451333971-612x612.jpg" />
+    <Content Include="images\istockphoto-489928638-612x612.jpg" />
+    <Content Include="images\istockphoto-858917796-612x612.jpg" />
+    <Content Include="images\NROu.gif" />
+    <Content Include="images\pedestrian-accidents.jpg" />
+    <Content Include="images\Personal-Accident3.jpg" />
+    <Content Include="images\sport-car-drive.gif" />
+    <Content Include="images\user3.png" />
+    <Content Include="js\jquery-1.7.1.js" />
+    <Content Include="js\jquery-1.7.1.min.js" />
+    <Content Include="js\loader.js" />
+    <Content Include="login.aspx" />
+    <Content Include="police_accident.aspx" />
+    <Content Include="po_home.aspx" />
+    <Content Include="po_login.aspx" />
+    <Content Include="po_register.aspx" />
+    <Content Include="register.aspx" />
+    <Content Include="update_pro.aspx" />
+    <Content Include="userhome.aspx" />
+    <Content Include="viewaccident.aspx" />
+    <Content Include="viweusers.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addaccident.aspx.cs">
+      <DependentUpon>addaccident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addaccident.aspx.designer.cs">
+      <DependentUpon>addaccident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addmin_login.aspx.cs">
+      <DependentUpon>addmin_login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addmin_login.aspx.designer.cs">
+      <DependentUpon>addmin_login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addmin_viweaccident.aspx.cs">
+      <DependentUpon>addmin_viweaccident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addmin_viweaccident.aspx.designer.cs">
+      <DependentUpon>addmin_viweaccident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addStaff.aspx.cs">
+      <DependentUpon>addStaff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addStaff.aspx.designer.cs">
+      <DependentUpon>addStaff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_home.aspx.cs">
+      <DependentUpon>admin_home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_home.aspx.designer.cs">
+      <DependentUpon>admin_home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_update.aspx.cs">
+      <DependentUpon>admin_update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_update.aspx.designer.cs">
+      <DependentUpon>admin_update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chart.aspx.cs">
+      <DependentUpon>chart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chart.aspx.designer.cs">
+      <DependentUpon>chart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="homepage.aspx.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homepage.aspx.designer.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="police_accident.aspx.cs">
+      <DependentUpon>police_accident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="police_accident.aspx.designer.cs">
+      <DependentUpon>police_accident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="po_home.aspx.cs">
+      <DependentUpon>po_home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="po_home.aspx.designer.cs">
+      <DependentUpon>po_home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="po_login.aspx.cs">
+      <DependentUpon>po_login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="po_login.aspx.designer.cs">
+      <DependentUpon>po_login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="po_register.aspx.cs">
+      <DependentUpon>po_register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="po_register.aspx.designer.cs">
+      <DependentUpon>po_register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="update_pro.aspx.cs">
+      <DependentUpon>update_pro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="update_pro.aspx.designer.cs">
+      <DependentUpon>update_pro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userhome.aspx.cs">
+      <DependentUpon>userhome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userhome.aspx.designer.cs">
+      <DependentUpon>userhome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewaccident.aspx.cs">
+      <DependentUpon>viewaccident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewaccident.aspx.designer.cs">
+      <DependentUpon>viewaccident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viweusers.aspx.cs">
+      <DependentUpon>viweusers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viweusers.aspx.designer.cs">
+      <DependentUpon>viweusers.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fontawsom\less\brands.less" />
+    <Content Include="fontawsom\less\fontawesome.less" />
+    <Content Include="fontawsom\less\regular.less" />
+    <Content Include="fontawsom\less\solid.less" />
+    <Content Include="fontawsom\less\v4-shims.less" />
+    <Content Include="fontawsom\less\_animated.less" />
+    <Content Include="fontawsom\less\_bordered-pulled.less" />
+    <Content Include="fontawsom\less\_core.less" />
+    <Content Include="fontawsom\less\_fixed-width.less" />
+    <Content Include="fontawsom\less\_icons.less" />
+    <Content Include="fontawsom\less\_list.less" />
+    <Content Include="fontawsom\less\_mixins.less" />
+    <Content Include="fontawsom\less\_rotated-flipped.less" />
+    <Content Include="fontawsom\less\_screen-reader.less" />
+    <Content Include="fontawsom\less\_shims.less" />
+    <Content Include="fontawsom\less\_sizing.less" />
+    <Content Include="fontawsom\less\_stacked.less" />
+    <Content Include="fontawsom\less\_variables.less" />
+    <Content Include="fontawsom\metadata\categories.yml" />
+    <Content Include="fontawsom\metadata\icons.json" />
+    <Content Include="fontawsom\metadata\icons.yml" />
+    <Content Include="fontawsom\metadata\shims.json" />
+    <Content Include="fontawsom\metadata\shims.yml" />
+    <Content Include="fontawsom\metadata\sponsors.yml" />
+    <Content Include="fontawsom\scss\brands.scss" />
+    <Content Include="fontawsom\scss\fontawesome.scss" />
+    <Content Include="fontawsom\scss\regular.scss" />
+    <Content Include="fontawsom\scss\solid.scss" />
+    <Content Include="fontawsom\scss\v4-shims.scss" />
+    <Content Include="fontawsom\scss\_animated.scss" />
+    <Content Include="fontawsom\scss\_bordered-pulled.scss" />
+    <Content Include="fontawsom\scss\_core.scss" />
+    <Content Include="fontawsom\scss\_fixed-width.scss" />
+    <Content Include="fontawsom\scss\_functions.scss" />
+    <Content Include="fontawsom\scss\_icons.scss" />
+    <Content Include="fontawsom\scss\_list.scss" />
+    <Content Include="fontawsom\scss\_mixins.scss" />
+    <Content Include="fontawsom\scss\_rotated-flipped.scss" />
+    <Content Include="fontawsom\scss\_screen-reader.scss" />
+    <Content Include="fontawsom\scss\_shims.scss" />
+    <Content Include="fontawsom\scss\_sizing.scss" />
+    <Content Include="fontawsom\scss\_stacked.scss" />
+    <Content Include="fontawsom\scss\_variables.scss" />
+    <Content Include="fontawsom\webfonts\fa-brands-400.ttf" />
+    <Content Include="fontawsom\webfonts\fa-brands-400.woff2" />
+    <Content Include="fontawsom\webfonts\fa-regular-400.ttf" />
+    <Content Include="fontawsom\webfonts\fa-regular-400.woff2" />
+    <Content Include="fontawsom\webfonts\fa-solid-900.ttf" />
+    <Content Include="fontawsom\webfonts\fa-solid-900.woff2" />
+    <Content Include="fontawsom\webfonts\fa-v4compatibility.ttf" />
+    <Content Include="fontawsom\webfonts\fa-v4compatibility.woff2" />
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56401</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44311/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
